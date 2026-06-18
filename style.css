@@ -6,6 +6,7 @@
 }
 
 body {
+    padding: 0.3rem;
     background-color: #f8f9fa;
     color: #1a1a1a;
     min-height: 100vh;
@@ -18,7 +19,7 @@ body {
     top: 0;
     width: 250px;
     height: 100vh;
-    background-color: rgba(194, 193, 193, 0.25);
+    background-color: rgba(194, 193, 193, 0.15);
     transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     overflow: hidden;
     z-index: 20;
@@ -192,12 +193,11 @@ body {
 }
 
 .lang-selector {
-    background-color: #ffffff;
+    background-color: rgba(194, 193, 193, 0.15);
     color: #1a1a1a;
-    padding: 8px 12px;
+    padding: 8px 8px;
     font-size: 13px;
     font-weight: 500;
-    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 6px;
     outline: none;
     cursor: pointer;
@@ -235,6 +235,25 @@ body {
     margin-bottom: 20px;
 }
 
+/* video part */
+.video {
+    width: 420px; 
+    height: 210px;
+    border-radius: 16px; 
+    overflow: hidden; 
+    box-shadow: 0 8px 20px rgba(196, 128, 226, 0.35) ;
+    margin: 20px auto; 
+    cursor: pointer;
+}
+
+/* Force the internal video element to fill the container perfectly */
+.video video {
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 h3 {
     font-size: 20px;
     font-weight: 700;
@@ -258,21 +277,25 @@ h4 {
     list-style-type: none;
 }
 
+/* FIX: Fluid padding calculation based on layout direction state context */
 .content-body ul li {
     position: relative;
-    padding-left: 20px;
+    padding-inline-start: 25px; /* Automatically switches left-right padding bounds */
+    padding-inline-end: 0;
     margin-bottom: 10px;
     font-size: 15px;
     color: #444444;
     line-height: 1.6;
 }
 
+/* FIX: Moves bullet points cleanly using inset-inline-start positioning rules */
 .content-body ul li::before {
     content: "•";
     color: #1a1a1a;
     font-weight: bold;
     position: absolute;
-    left: 5px;
+    inset-inline-start: 5px; /* Flips position dynamically when direction switches */
+    top: 0;
 }
 
 /* -----------------------------------------------------------------
@@ -320,9 +343,9 @@ h4 {
         flex-direction: column;
         list-style: none;
         position: absolute;
-        top: 4rem;
+        top: 5rem;
         left: 0rem;
-        background-color: #ffffff;
+        background-color: #efefef;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
         padding: 10px 20px;
@@ -372,10 +395,89 @@ h4 {
     }
     
     .content-body {
-        padding: 30px 20px;
+        padding: 35px 16px !important; 
+        max-width: 100%;
+        width: 100% !important;
     }
     
     .header {
         padding: 0 1rem;
     }
+
+    .video {
+    width: 370px; 
+    padding: 0.4rem;
+    margin: 70px auto; 
 }
+
+/* Custom Language Dropdown Controller Engine */
+.lang-selector {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #1a1a1a;
+    margin-right: 1rem;
+    padding:6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 96px !important;  
+    direction: ltr !important;
+    text-align: left !important;
+    -webkit-appearance: none; /* Strips old mobile styling remnants */
+    appearance: none;
+}
+
+/* FIX: Targets the popup options menu container box explicitly across modern engines */
+.lang-selector option {
+    background-color: #ffffff !important; /* Re-applies a clean solid white surface background mask for readability */
+    color: #1a1a1a !important;
+    border: none !important; /* Clears out old standard browser bounding lines */
+    outline: none !important;
+    font-size: 12px;
+    padding: 6px;
+}
+
+/* Clean Hover Interface State Highlight Filter */
+.lang-selector:hover {
+    color: #4A47CC; 
+}
+
+
+}
+
+/* =====================================================
+   HEADER NAVIGATION LOCK - Prevents RTL Flipping
+   ===================================================== */
+
+/* Forces the main header container to stay LTR regardless of selected language */
+header, .header, .nav-bar {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Guarantees the hamburger button stays on the left and the logo follows immediately next to it */
+.mobile-brand-row {
+    direction: ltr !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+}
+
+/* Ensures the right-side elements (like the language selector dropdown) stay pinned right */
+.header .nav-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+}
+
+/* Forces the language option selector layout tracking to look normal */
+.lang-selector {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
