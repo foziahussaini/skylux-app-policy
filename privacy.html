@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLuxApp.com</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- Left-pinned sidebar wrapper container (Desktop Baseline Navigation Mode) -->
+<div class="sidebar collapsed" id="sidebar">
+    <div class="sidebar-brand">
+        <div class="image">
+            <img src="image/logo.png" alt="SkyLux Logo" class="logo">
+        </div>
+    </div>
+    
+    <!-- Shared navigation links list structure -->
+    <ul class="list" id="desktopList">
+        <li data-section="terms" onclick="navigateToSection('terms')">
+            <span class="item-icon">🛠️</span>
+            <span class="item-text" data-i18n="nav_terms">Terms &amp; Support</span>
+        </li>
+        <li class="active" data-section="privacy" onclick="navigateToSection('privacy')">
+            <span class="item-icon">🔒</span>
+            <span class="item-text" data-i18n="nav_privacy">Privacy Policy</span>
+        </li>
+        <li data-section="features" onclick="navigateToSection('features')">
+            <span class="item-icon">✨</span>
+            <span class="item-text" data-i18n="nav_features">Features</span>
+        </li>
+    </ul>
+
+    <!-- Fixed Desktop Footer Toggle Container -->
+    <div class="sidebar-footer">
+        <button class="toggle-btn desktop-toggle" onclick="toggleSidebar()">&gt;</button>
+    </div>
+</div>
+
+<div class="page-wrapper">
+    <!-- Header Area featuring the row-aligned mobile toggle button -->
+    <header class="header">
+        <div class="nav-bar">
+            <!-- Mobile Brand Row with horizontal button and logo alignment -->
+            <div class="mobile-brand-row">
+                <button class="toggle-btn mobile-toggle" onclick="toggleSidebar()">☰</button>
+                <div class="mobile-image">
+                    <img src="image/logo.png" alt="SkyLux Logo" class="logo">
+                </div>
+            </div>
+            
+            <select class="lang-selector" id="lang-selector">
+                <option value="en">English (US)</option>
+                <option value="da">Dari (Da)</option>
+                <option value="pa">Pashto (Pa)</option>
+            </select>
+        </div>
+
+       <ul class="mobile-dropdown-list" id="mobileDropdown">
+            <li data-section="terms" onclick="navigateToSection('terms')">
+                <span class="item-icon">🛠️</span>
+                <span class="item-text" data-i18n="nav_terms">Terms &amp; Support</span>
+            </li>
+            <li class="active" data-section="privacy" onclick="navigateToSection('privacy')">
+                <span class="item-icon">🔒</span>
+                <span class="item-text" data-i18n="nav_privacy">Privacy Policy</span>
+            </li>
+            <li data-section="features" onclick="navigateToSection('features')">
+                <span class="item-icon">✨</span>
+                <span class="item-text" data-i18n="nav_features">Features</span>
+            </li>
+        </ul>
+    </header>
+
+    <!-- Document Content Body -->
+    <main class="content-body">
+        <h1 class="main-title" data-i18n="main_title">Welcome to the SkyLux App Privacy Policy</h1>
+        <div class="meta-text">
+            <span>📅</span> <span data-i18n="meta_date">Last updated: June 2, 2026</span>
+        </div>
+        
+        <p class="policy-text" data-i18n="intro_p1">Welcome to SkyLux. SkyLux is a mobile application designed to provide seamless flight booking and travel planning experiences. Our platform helps users search for flights, compare prices, book tickets, manage trips, and receive travel-related information. We are committed to protecting your privacy and handling your personal information responsibly. This Privacy Policy explains what information we collect, how we use it, how we protect it, and your rights regarding your data. By using SkyLux, you agree to the collection and use of information as described in this Privacy Policy.</p>
+
+        <p class="policy-text" data-i18n="intro_p2">
+            At SkyLux, we prioritize your trust and are fully committed to protecting your privacy. This policy outlines how we gather, utilize, and protect your data to give you a reliable travel planning ecosystem. By accessing our platform, you consent to these operational data management practices.
+        </p>
+
+        <h3 data-i18n="sec1_title">1. Our Services</h3>
+        <p class="policy-text" data-i18n="sec1_p">
+            SkyLux delivers an all-in-one digital travel ecosystem engineered to streamline global transit. Our core platform offerings include:
+        </p>
+        <ul>
+            <li data-i18n="sec1_li1"><strong>Global Flight Search:</strong> Live engine queries across hundreds of airlines to discover real-time route options.</li>
+            <li data-i18n="sec1_li2"><strong>Fare Comparison:</strong> Dynamic price aggregation tools to evaluate and secure optimal ticketing deals.</li>
+            <li data-i18n="sec1_li3"><strong>Instant Booking:</strong> Direct, integrated reservation paths for flights, baggage selections, and preferred seat layouts.</li>
+            <li data-i18n="sec1_li4"><strong>Itinerary Management:</strong> A centralized passenger dashboard providing automated updates, delay alerts, and digital boarding passes.</li>
+        </ul>
+
+        <h3 data-i18n="sec2_title">2. Why SkyLux?</h3>
+        <p class="policy-text" data-i18n="sec2_p">
+            We combine high-performance itinerary coordination with a stringent, security-first approach to user data. Our platform stands apart by ensuring:
+        </p>
+        <ul>
+            <li data-i18n="sec2_li1"><strong>Data Integrity:</strong> We strictly protect passenger details and travel histories using high-tier cloud security standards.</li>
+            <li data-i18n="sec2_li2"><strong>Secure Transactions:</strong> Financial processing is managed entirely by certified third-party vendors; we never hold full card credentials on our servers.</li>
+            <li data-i18n="sec2_li3"><strong>Tailored Experiences:</strong> Optional preference tracking allows us to remember your favorite seating styles, destinations, and dietary choices safely.</li>
+        </ul>
+
+        <h3 data-i18n="sec3_title">3. Information We Collect</h3>
+        
+        <h4 data-i18n="sec3_h4_1">Personal Information</h4>
+        <p class="policy-text" data-i18n="sec3_p1">When you create an account or use our services, we may collect:</p>
+        <ul>
+            <li data-i18n="sec3_li1_1">Full name</li>
+            <li data-i18n="sec3_li1_2">Email address</li>
+            <li data-i18n="sec3_li1_3">Phone number</li>
+            <li data-i18n="sec3_li1_4">Profile picture (optional)</li>
+            <li data-i18n="sec3_li1_5">Date of birth (if required)</li>
+            <li data-i18n="sec3_li1_6">Nationality (if required for booking)</li>
+        </ul>
+
+        <h4 data-i18n="sec3_h4_2">Travel Information</h4>
+        <p class="policy-text" data-i18n="sec3_p2">To provide flight booking services, we may collect:</p>
+        <ul>
+            <li data-i18n="sec3_li2_1">Passenger names</li>
+            <li data-i18n="sec3_li2_2">Travel destinations</li>
+            <li data-i18n="sec3_li2_3">Departure and arrival dates</li>
+            <li data-i18n="sec3_li2_4">Flight preferences</li>
+            <li data-i18n="sec3_li2_5">Seat preferences</li>
+            <li data-i18n="sec3_li2_6">Baggage selections</li>
+            <li data-i18n="sec3_li2_7">Booking history</li>
+        </ul>
+
+        <h4 data-i18n="sec3_h4_3">Payment Information</h4>
+        <p class="policy-text" data-i18n="sec3_p3">For processing payments, we may collect:</p>
+        <ul>
+            <li data-i18n="sec3_li3_1">Billing information</li>
+            <li data-i18n="sec3_li3_2">Payment method details</li>
+            <li data-i18n="sec3_li3_3">Transaction records</li>
+        </ul>
+
+        <h3 data-i18n="sec4_title">4. AI Travel Assistant</h3>
+        <p class="policy-text" data-i18n="sec4_p1">
+            SkyLux provides an AI-powered Travel Assistant to help users with flight searches, travel planning, booking guidance, baggage information, destination recommendations, and customer support.
+        </p>
+
+        <h4 data-i18n="sec4_h4_1">Information Processed by the AI Assistant</h4>
+        <p class="policy-text" data-i18n="sec4_p2">When interacting with the AI Assistant, we may process:</p>
+        <ul>
+            <li data-i18n="sec4_li1_1">Questions and messages submitted by users</li>
+            <li data-i18n="sec4_li1_2">Travel preferences</li>
+            <li data-i18n="sec4_li1_3">Flight search requests</li>
+            <li data-i18n="sec4_li1_4">Booking-related inquiries</li>
+            <li data-i18n="sec4_li1_5">Feedback and support requests</li>
+        </ul>
+
+        <h4 data-i18n="sec4_h4_2">How AI Conversations Are Used</h4>
+        <p class="policy-text" data-i18n="sec4_p3">AI conversations may be used to:</p>
+        <ul>
+            <li data-i18n="sec4_li2_1">Generate personalized responses and recommendations</li>
+            <li data-i18n="sec4_li2_2">Improve the quality and accuracy of AI services</li>
+            <li data-i18n="sec4_li2_3">Troubleshoot technical issues</li>
+            <li data-i18n="sec4_li2_4">Enhance user experience</li>
+        </ul>
+
+        <h4 data-i18n="sec4_h4_3">User Responsibilities</h4>
+        <p class="policy-text" data-i18n="sec4_p4">
+            Users should strictly avoid sharing sensitive information through the AI Assistant, including passwords, banking information, government-issued identification numbers, or other confidential personal information.
+        </p>
+
+        <h4 data-i18n="sec4_h4_4">Accuracy of AI Responses</h4>
+        <p class="policy-text" data-i18n="sec4_p5">
+            The AI Assistant is designed to provide helpful travel-related information; however, responses may occasionally be incomplete or inaccurate. Users should verify important details—such as flight schedules, prices, visa requirements, and travel regulations—before making financial or travel decisions.
+        </p>
+
+        <h4 data-i18n="sec4_h4_5">Human Support</h4>
+        <p class="policy-text" data-i18n="sec4_p6">
+            When necessary, users may be automatically directed or manually opt to speak with customer support representatives for additional assistance.
+        </p>
+
+        <h4 data-i18n="sec4_h4_6">Data Protection &amp; Privacy Settings</h4>
+        <p class="policy-text" data-i18n="sec4_p7">
+            AI conversation data is handled according to this Privacy Policy and protected using appropriate security measures. You can manage your AI data through the application settings menu using the following controls:
+        </p>
+        <ul>
+            <li data-i18n="sec4_li3_1">Enable/Disable AI Assistant</li>
+            <li data-i18n="sec4_li3_2">Clear AI Chat History</li>
+            <li data-i18n="sec4_li3_3">Delete AI Conversation Data</li>
+            <li data-i18n="sec4_li3_4">Manage AI Privacy Preferences</li>
+        </ul>
+    </main>
+</div>
+</body>
+</html>

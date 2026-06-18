@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #1a1a1a;
+    min-height: 100vh;
+}
+       
+/* ----------- Sidebar Base (Desktop Navigation Track Setup) ----------------*/
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(194, 193, 193, 0.25);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    z-index: 20;
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 5rem;
+    padding: 0 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    width: 100%;
+}
+
+.sidebar-brand .image {
+    height: 45px;
+    width: 45px; 
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sidebar-brand .image .logo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sidebar .list {
+    list-style: none;
+    width: 100%;
+    padding: 0 10px;
+    margin-top: 2rem;
+}
+    
+.sidebar .list li {
+    display: flex;
+    align-items: center;
+    padding: 12px 12px;
+    margin-bottom: 4px;
+    background-color: transparent;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: padding 0.3s ease;
+}
+
+/* for active li */
+.sidebar .list li.active .item-text,
+.mobile-dropdown-list li.active .item-text {
+    font-weight: 700;
+    background: linear-gradient(135deg, #4A47CC, #C480E2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block; 
+}
+
+/* for active icon  */
+.sidebar .list li.active .item-icon,
+.mobile-dropdown-list li.active .item-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(196, 128, 226, 0.35); 
+    width: 34px;
+    height: 34px;
+    border-radius: 10px; 
+    margin: 0;
+    line-height: 1;
+    font-size: 16px;
+}
+
+.sidebar .list li .item-icon {
+    display: inline-block; 
+    font-size: 18px;
+    width: 25px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.sidebar .list li .item-text {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-left: 10px;
+}
+
+/* Desktop Collapsed Sidebar State Modifiers */
+.sidebar.collapsed .list li .item-text {
+    display: none; 
+}
+
+.sidebar.collapsed .list li {
+    justify-content: center; 
+    padding: 12px 0;
+}
+
+.sidebar-footer {
+    margin-top: auto; 
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 0 15px 10px 15px;
+}
+
+.toggle-btn {
+    border: none;
+    background-color: transparent;
+    color: #1a1a1a;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-footer .desktop-toggle {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+}
+
+/* Hide mobile structures on larger desktop viewports */
+.mobile-toggle, .mobile-brand-row, .mobile-dropdown-list {
+    display: none !important;
+}
+
+/* ----------- Fluid Page Layout Adjustments ----------------*/
+.page-wrapper {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    background: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}       
+
+.sidebar.collapsed ~ .page-wrapper {
+    width: calc(100% - 60px);
+    margin-left: 60px;
+}
+
+.header {
+    position: relative; /* Acts as anchor container boundary for absolute dropdown list */
+    width: 100%;
+    height: 5rem;
+    background-color: rgba(194, 193, 193, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 0 2rem;
+    z-index: 30; /* Places header above content layer */
+}
+
+.header .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.lang-selector {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.content-body {
+    flex: 1;
+    padding: 40px 10%;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #111111;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.meta-text {
+    font-size: 13px;
+    color: #757575;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 32px;
+}
+
+.policy-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111111;
+    margin-top: 40px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eeeeee;
+    padding-bottom: 8px;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+.content-body ul {
+    margin-bottom: 24px;
+    list-style-type: none;
+}
+
+.content-body ul li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.6;
+}
+
+.content-body ul li::before {
+    content: "•";
+    color: #1a1a1a;
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+}
+
+/* -----------------------------------------------------------------
+   Mobile Layout Adjustments (Vertical Header Dropdown Mode)
+   ----------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Expose mobile row components inside the top navigation bar */
+    .mobile-brand-row {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .mobile-toggle {
+        display: flex !important;
+        font-size: 24px;
+        width: 35px;
+        height: 35px;
+        z-index: 41;
+    }
+    
+    .mobile-image {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .mobile-image .logo {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* Hide desktop sidebar on mobile layout screens */
+    .sidebar {
+        display: none !important;
+    }
+
+    /* Vertical drop menu blocks styling properties */
+    .mobile-dropdown-list {
+        width: 240px;
+        height: 100vh;
+        display: flex !important;
+        flex-direction: column;
+        list-style: none;
+        position: absolute;
+        top: 4rem;
+        left: 0rem;
+        background-color: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+        padding: 10px 20px;
+        
+        /* Smooth fade slide transitions tracking execution values */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-15px);
+        transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
+        z-index: 25;
+    }
+
+    /* Unfurl display values when toggled open */
+    .mobile-dropdown-list.mobile-open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .mobile-dropdown-list li {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 14px 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        cursor: pointer;
+    }
+
+    .mobile-dropdown-list li:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-dropdown-list li .item-text {
+        font-size: 15px;
+        font-weight: 500;
+        margin-left: 10px;
+    }
+
+    .mobile-dropdown-list li .item-icon {
+        font-size: 18px;
+    }
+
+    /* Stretch text parameters full width */
+    .page-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .content-body {
+        padding: 30px 20px;
+    }
+    
+    .header {
+        padding: 0 1rem;
+    }
+}
