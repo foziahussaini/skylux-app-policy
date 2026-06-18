@@ -51,8 +51,8 @@ body {
 }
 
 .sidebar-brand .image .logo {
-    height: 100%;
-    width: 100%;
+    height: 45px;
+    width: 45px;
     object-fit: cover;
 }
 
@@ -155,7 +155,7 @@ body {
 }
 
 /* Hide mobile structures on larger desktop viewports */
-.mobile-toggle, .mobile-brand-row, .mobile-dropdown-list {
+.mobile-toggle, .mobile-brand-row, .mobile-dropdown-list , .mobile-image {
     display: none !important;
 }
 
@@ -317,16 +317,16 @@ h4 {
         z-index: 41;
     }
     
-    .mobile-image {
+    .mobile-brand-row .mobile-image {
         height: 40px;
         width: 40px;
         border-radius: 50%;
         overflow: hidden;
     }
 
-    .mobile-image .logo {
-        height: 100%;
-        width: 100%;
+    .mobile-brand-row .mobile-image .logo {
+        height: 40px;
+        width: 40px;
         object-fit: cover;
     }
 
