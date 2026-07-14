@@ -1,18 +1,23 @@
+/* ==========================================================================
+   1. GLOBAL RESET & BASE DIRECTIVES
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
+    padding-left: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    padding: 0.3rem;
+    padding-left: 0.5rem;
     background-color: #f8f9fa;
     color: #1a1a1a;
     min-height: 100vh;
 }
-       
-/* ----------- Sidebar Base (Desktop Navigation Track Setup) ----------------*/
+
+/* ==========================================================================
+   2. DESKTOP SIDEBAR NAVIGATION INTERFACE
+   ========================================================================== */
 .sidebar {
     position: fixed;
     left: 0;
@@ -37,14 +42,14 @@ body {
     align-items: center;
     justify-content: flex-start;
     height: 5rem;
-    padding: 0 15px;
+    padding: 0 9px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     width: 100%;
 }
 
 .sidebar-brand .image {
     height: 45px;
-    width: 45px; 
+    width: 45px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
@@ -62,7 +67,7 @@ body {
     padding: 0 10px;
     margin-top: 2rem;
 }
-    
+
 .sidebar .list li {
     display: flex;
     align-items: center;
@@ -74,7 +79,7 @@ body {
     transition: padding 0.3s ease;
 }
 
-/* for active li */
+/* Navigation active line link states */
 .sidebar .list li.active .item-text,
 .mobile-dropdown-list li.active .item-text {
     font-weight: 700;
@@ -82,26 +87,26 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block; 
+    display: inline-block;
 }
 
-/* for active icon  */
+/* Navigation active icon highlight states */
 .sidebar .list li.active .item-icon,
 .mobile-dropdown-list li.active .item-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 12px rgba(196, 128, 226, 0.35); 
+    box-shadow: 0 4px 12px rgba(196, 128, 226, 0.35);
     width: 34px;
     height: 34px;
-    border-radius: 10px; 
+    border-radius: 10px;
     margin: 0;
     line-height: 1;
     font-size: 16px;
 }
 
 .sidebar .list li .item-icon {
-    display: inline-block; 
+    display: inline-block;
     font-size: 18px;
     width: 25px;
     text-align: center;
@@ -116,36 +121,25 @@ body {
     margin-left: 10px;
 }
 
-/* Desktop Collapsed Sidebar State Modifiers */
+/* Collapsed parameters track */
 .sidebar.collapsed .list li .item-text {
-    display: none; 
+    display: none;
 }
 
 .sidebar.collapsed .list li {
-    justify-content: center; 
+    justify-content: center;
     padding: 12px 0;
 }
 
 .sidebar-footer {
-    margin-top: auto; 
+    margin-top: auto;
     width: 100%;
     height: 4rem;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding: 0 15px 10px 15px;
-}
-
-.toggle-btn {
-    border: none;
-    background-color: transparent;
-    color: #1a1a1a;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .sidebar-footer .desktop-toggle {
@@ -154,12 +148,18 @@ body {
     font-size: 16px;
 }
 
-/* Hide mobile structures on larger desktop viewports */
-.mobile-toggle, .mobile-brand-row, .mobile-dropdown-list , .mobile-image {
+/* Hidden desktop structures baseline state fallback */
+.mobile-toggle,
+.mobile-brand-row,
+.mobile-dropdown-list,
+.mobile-image,
+.earth-icon {
     display: none !important;
 }
 
-/* ----------- Fluid Page Layout Adjustments ----------------*/
+/* ==========================================================================
+   3. DESKTOP PAGE CANVAS & LAYOUT WRAPPERS
+   ========================================================================== */
 .page-wrapper {
     margin-left: 250px;
     width: calc(100% - 250px);
@@ -168,21 +168,21 @@ body {
     display: flex;
     flex-direction: column;
     transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1), width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}       
+}
 
-.sidebar.collapsed ~ .page-wrapper {
+.sidebar.collapsed~.page-wrapper {
     width: calc(100% - 60px);
     margin-left: 60px;
 }
 
 .header {
-    position: relative; /* Acts as anchor container boundary for absolute dropdown list */
+    position: relative;
     width: 100%;
-    height: 5rem;
+    height: 3.5rem;
     background-color: rgba(194, 193, 193, 0.15);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     padding: 0 2rem;
-    z-index: 30; /* Places header above content layer */
+    z-index: 30;
 }
 
 .header .nav-bar {
@@ -192,40 +192,101 @@ body {
     height: 100%;
 }
 
+/* Custom Language Select Dropdown Engine */
 .lang-selector {
-    background-color: rgba(194, 193, 193, 0.15);
-    color: #1a1a1a;
-    padding: 8px 8px;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 6px;
-    outline: none;
-    cursor: pointer;
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #1a1a1a !important;
+    /* Extra left padding prevents text from clipping or overlapping with the globe emoji */
+    padding: 6px 4px 6px 22px !important; 
+    font-size: 13px !important;
+    font-weight: 700 !important; /* Bold font weight helps short codes stand out clearly */
+    cursor: pointer !important;
+    width: 65px !important; /* Narrow width footprint matching the 2-letter code geometry */ 
+    direction: ltr !important;
+    text-align: left !important;
+    -webkit-appearance: none; 
+    appearance: none;
 }
 
+.lang-selector-container .earth-icon{
+    size: 14px;
+    color: #4A47CC;
+}
+
+/* Explicit rule targeting popup choices across modern web engines */
+.lang-selector option {
+    background-color: #ffffff !important; 
+    color: #1a1a1a !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    padding: 10px !important;
+}
+
+/* Master Layout Content Block - Handles desktop margins perfectly */
 .content-body {
     flex: 1;
-    padding: 40px 10%;
-    max-width: 1000px;
-    width: 100%;
-    margin: 0 auto;
+    padding: 10px 8% !important;
+    /* Uniform left/right margins for all sections */
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
 }
 
-.main-title {
-    font-size: 32px;
-    font-weight: 800;
-    color: #111111;
-    margin-bottom: 12px;
-    line-height: 1.2;
+/* ==========================================================================
+   4. SKYLUX HERO BANNER ARCHITECTURE SUITE
+   ========================================================================== */
+.policy-hero-banner {
+    position: relative !important;
+    width: 100% !important;
+    height: 300px !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    /* Vertical center alignment */
+    justify-content: flex-start !important;
+    /* Horizontally left alignment */
+    padding: 0 40px !important;
+    box-sizing: border-box !important;
+    border-radius: 12px !important;
+    margin-top: 20px !important;
+    margin-bottom: 25px !important;
+    overflow: hidden !important;
 }
 
+.banner-text-left {
+    max-width: 65% !important;
+    display: flex !important;
+    justify-content: flex-start !important;
+}
+
+.banner-text-left .main-title {
+    color: #ffffff !important;
+    font-size: 32px !important;
+    font-weight: 800 !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+    text-align: center !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* ==========================================================================
+   5. TYPOGRAPHY, EMBEDS & LIST LAYOUTS
+   ========================================================================== */
 .meta-text {
-    font-size: 13px;
-    color: #757575;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 32px;
+    margin-bottom: 25px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    color: #757575 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
 }
 
 .policy-text {
@@ -235,24 +296,95 @@ body {
     margin-bottom: 20px;
 }
 
-/* video part */
-.video {
-    width: 420px; 
-    height: 210px;
-    border-radius: 16px; 
-    overflow: hidden; 
-    box-shadow: 0 8px 20px rgba(196, 128, 226, 0.35) ;
-    margin: 20px auto; 
-    cursor: pointer;
+/* ==========================================================================
+   UNIFIED VIDEO CONTAINER FRAMEWORKS (SECTION 2 & SECTION 7)
+   ========================================================================== */
+
+/* Target both section video containers together cleanly on desktop monitors */
+.content-body .section2 .video,
+.content-body .section7 .video {
+    width: 530px !important; /* Premium wide presentation matching your request */
+    height: 280px !important;
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 20px rgba(196, 128, 226, 0.35) !important;
+    margin: 30px auto !important; /* Clean layout vertical spacing balance */
+    cursor: pointer !important;
 }
 
-/* Force the internal video element to fill the container perfectly */
-.video video {
-    border-radius: 16px;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Ensure internal video elements fit both section containers perfectly */
+.content-body .section2 .video video,
+.content-body .section7 .video video {
+    border-radius: 16px !important;
+    width: 100% !important;
+    height: 100% !important;
+    /* FIX: Changed from cover to contain to prevent cropping the video text content */
+    object-fit: contain !important; 
+    background-color: #000000 !important; /* Seamlessly masks any leftover empty spacing edge pixels */
+    display: block !important;
 }
+
+/* ==========================================================================
+   SKYLUX FLOATING VIDEO PLAY ICON SUITE
+   ========================================================================== */
+.video-relative-wrapper {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.video-play-overlay {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: rgba(0, 0, 0, 0.15) !important;
+    pointer-events: none !important; 
+    transition: opacity 0.25s ease, visibility 0.25s ease !important;
+    z-index: 5 !important;
+}
+
+.play-triangle {
+    color: #ffffff !important;
+    font-size: 38px !important;
+    opacity: 0.85 !important;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)) !important;
+    display: inline-block !important;
+    transition: transform 0.2s ease, opacity 0.2s ease !important;
+}
+
+/* Swell interactive pop scale animation logic engine state rule */
+.video:hover .play-triangle {
+    transform: scale(1.15) !important;
+    opacity: 1 !important;
+}
+
+/* ==========================================================================
+   MOBILE CONTROLLER BREAKPOINTS ENGINE (PASTE AT THE VERY BOTTOM OF STYLE.CSS)
+   ========================================================================== */
+@media (max-width: 768px) {
+    
+    /* Target both Section 2 and Section 7 video frames on phone screens */
+    .content-body .section2 .video,
+    .content-body .section7 .video {
+        width: 100% !important;
+        max-width: 370px !important; /* Locks a clean mobile layout card width */
+        height: 185px !important; /* Maintains the 16:9 widescreen ratio dimensions */
+        margin: 25px auto !important; /* Keeps the cards perfectly centered with uniform spacing */
+        border-radius: 12px !important;
+    }
+
+    /* Shrink the overlay triangle size slightly to balance the smaller phone display */
+    .video:hover .play-triangle,
+    .play-triangle {
+        font-size: 28px !important; 
+    }
+}
+
 
 h3 {
     font-size: 20px;
@@ -277,10 +409,9 @@ h4 {
     list-style-type: none;
 }
 
-/* FIX: Fluid padding calculation based on layout direction state context */
 .content-body ul li {
     position: relative;
-    padding-inline-start: 25px; /* Automatically switches left-right padding bounds */
+    padding-inline-start: 25px;
     padding-inline-end: 0;
     margin-bottom: 10px;
     font-size: 15px;
@@ -288,25 +419,69 @@ h4 {
     line-height: 1.6;
 }
 
-/* FIX: Moves bullet points cleanly using inset-inline-start positioning rules */
 .content-body ul li::before {
     content: "•";
     color: #1a1a1a;
     font-weight: bold;
     position: absolute;
-    inset-inline-start: 5px; /* Flips position dynamically when direction switches */
+    inset-inline-start: 5px;
     top: 0;
 }
 
-/* -----------------------------------------------------------------
-   Mobile Layout Adjustments (Vertical Header Dropdown Mode)
-   ----------------------------------------------------------------- */
+/* ==========================================================================
+   6. RESPONSIVE COMPRESSION SUITE FOR SMALL MOBILE SCREENS (MAX-WIDTH: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    /* Expose mobile row components inside the top navigation bar */
+    .page-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important; /* Forces header to sit cleanly ABOVE the content */
+    }
+
+    /* 2. Re-establish the horizontal top nav bar visibility footprint tracking rules */
+    .header {
+        display: block !important;
+        width: 100% !important;
+        height: 3.5rem !important; /* Restores the layout vertical box metrics footprint */
+        background-color: rgba(194, 193, 193, 0.15) !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+        padding: 0 1rem !important;
+        position: relative !important;
+        z-index: 99 !important; /* Pushes the menu icons completely to the absolute top visible layer */
+    }
+
+    /* 3. Keep the content body sitting properly underneath without overlapping */
+    .content-body {
+        padding: 18px 26px !important;
+        max-width: 100%;
+        width: 100% !important;
+        display: block !important;
+    }
+
+     .play-triangle {
+        font-size: 28px !important; 
+    }
+
+    .sidebar {
+        display: none !important;
+    }
+
+    .header {
+        padding: 0 1rem !important;
+    }
+
+    .nav-bar {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100%;
+        position: relative;
+    }
+
     .mobile-brand-row {
         display: flex !important;
-        align-items: center;
-        gap: 12px;
+        align-items: center !important;
     }
 
     .mobile-toggle {
@@ -315,169 +490,162 @@ h4 {
         width: 35px;
         height: 35px;
         z-index: 41;
-    }
-    
-    .mobile-brand-row .mobile-image {
-        height: 40px;
-        width: 40px;
-        border-radius: 50%;
-        overflow: hidden;
+        border: none !important;
+        outline: none !important;
+        background: transparent !important;
     }
 
-    .mobile-brand-row .mobile-image .logo {
-        height: 40px;
-        width: 40px;
-        object-fit: cover;
-    }
-
-    /* Hide desktop sidebar on mobile layout screens */
-    .sidebar {
-        display: none !important;
-    }
-
-    /* Vertical drop menu blocks styling properties */
-    .mobile-dropdown-list {
-        width: 240px;
-        height: 100vh;
+    .lang-selector-container {
         display: flex !important;
-        flex-direction: column;
-        list-style: none;
-        position: absolute;
-        top: 5rem;
-        left: 0rem;
-        background-color: #efefef;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-        padding: 10px 20px;
-        
-        /* Smooth fade slide transitions tracking execution values */
-        opacity: 0;
-        visibility: hidden;
-        transform: translateX(-15px);
-        transition: transform 0.25s ease, opacity 0.25s ease, visibility 0.25s ease;
-        z-index: 25;
+        align-items: center !important;
+        margin-left: auto !important;
+        position: relative !important;
     }
 
-    /* Unfurl display values when toggled open */
-    .mobile-dropdown-list.mobile-open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+    .lang-selector {
+        background: transparent !important;
+        background-color: transparent !important;
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+        color: #1a1a1a !important;
+        padding: 6px 6px 6px 24px !important;
+        /* Left space for earth icon overlay */
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        cursor: pointer !important;
+        width: 50px !important;
+        direction: ltr !important;
+        text-align: left !important;
+        -webkit-appearance: none;
+        appearance: none;
     }
 
-    .mobile-dropdown-list li {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        padding: 14px 10px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
-        cursor: pointer;
+    .lang-selector option {
+        background-color: #ffffff !important;
+        color: #1a1a1a !important;
+        border: none !important;
+        outline: none !important;
+        font-size: 10px !important;
+        padding: 3px !important;
     }
 
-    .mobile-dropdown-list li:last-child {
-        border-bottom: none;
+    .lang-selector:hover {
+        color: #4A47CC !important;
     }
 
-    .mobile-dropdown-list li .item-text {
-        font-size: 15px;
-        font-weight: 500;
-        margin-left: 10px;
+    .earth-icon {
+        position: absolute !important;
+        left: 4px !important;
+        font-size: 14px !important;
+        pointer-events: none !important;
+        display: inline-block !important;
     }
 
-    .mobile-dropdown-list li .item-icon {
-        font-size: 18px;
+    /* Mobile far-right corner logo architecture */
+    .mobile-image {
+        display: block !important;
+        height: 40px !important;
+        width: 40px !important;
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        flex-shrink: 0 !important;
     }
 
-    /* Stretch text parameters full width */
-    .page-wrapper {
-        margin-left: 0 !important;
+    .mobile-image .logo {
+        height: 40px !important;
+        width: 40px !important;
+        object-fit: cover !important;
+        display: block !important;
+    }
+
+    /* Fixed mobile padding structure for the Hero Banner */
+    .policy-hero-banner {
+        height: 190px !important;
+        padding-left: 20px !important; 
+        padding-right: 20px !important;
+        padding-top: 0 !important;       
+        margin-top: 0 !important;
+        margin-right: 0 !important;      
+        margin-bottom: 20px !important;
+        border-radius: 8px !important;
+        background-position: center center !important;
+        justify-content: flex-start !important;
+    }
+
+    .banner-text-left {
+        max-width: 100% !important;
         width: 100% !important;
     }
-    
-    .content-body {
-        padding: 35px 16px !important; 
-        max-width: 100%;
-        width: 100% !important;
-    }
-    
-    .header {
-        padding: 0 1rem;
+
+    .banner-text-left .main-title {
+        font-size: 24px !important;
+        text-align: left !important; /* FIXED: Restored from broken comment loop */
     }
 
+    /* Responsive adjustments for video screens inside mobile devices */
     .video {
-    width: 370px; 
-    padding: 0.4rem;
-    margin: 70px auto; 
+        width: 100% !important;
+        max-width: 370px !important;
+        height: 185px !important;
+        margin: 25px auto !important;
+    } 
+
+   
+
+/* Dropdown Navigation Menu Block */
+.mobile-dropdown-list {
+width: 240px !important;
+height: 100vh !important;
+display: none !important; 
+flex-direction: column !important;
+list-style: none !important;
+position: absolute !important;
+top: 3.5rem !important;
+left: 0rem !important;
+background-color: #efefef !important;
+border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06) !important;
+padding: 10px 20px !important;
+z-index: 25 !important;
 }
 
-/* Custom Language Dropdown Controller Engine */
-.lang-selector {
-    background: transparent !important;
-    background-color: transparent !important;
-    border: none !important;
-    outline: none !important;
-    box-shadow: none !important;
-    color: #1a1a1a;
-    margin-right: 1rem;
-    padding:6px;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    width: 96px !important;  
-    direction: ltr !important;
-    text-align: left !important;
-    -webkit-appearance: none; /* Strips old mobile styling remnants */
-    appearance: none;
+.mobile-dropdown-list.mobile-open {
+    display: flex !important;
 }
 
-/* FIX: Targets the popup options menu container box explicitly across modern engines */
-.lang-selector option {
-    background-color: #ffffff !important; /* Re-applies a clean solid white surface background mask for readability */
-    color: #1a1a1a !important;
-    border: none !important; /* Clears out old standard browser bounding lines */
-    outline: none !important;
-    font-size: 12px;
-    padding: 6px;
-}
-
-/* Clean Hover Interface State Highlight Filter */
-.lang-selector:hover {
-    color: #4A47CC; 
-}
-
-
-}
-
-/* =====================================================
-   HEADER NAVIGATION LOCK - Prevents RTL Flipping
-   ===================================================== */
-
-/* Forces the main header container to stay LTR regardless of selected language */
-header, .header, .nav-bar {
-    direction: ltr !important;
-    text-align: left !important;
-}
-
-/* Guarantees the hamburger button stays on the left and the logo follows immediately next to it */
-.mobile-brand-row {
-    direction: ltr !important;
+.mobile-dropdown-list li {
+    width: 100% !important;
     display: flex !important;
     align-items: center !important;
-    justify-content: flex-start !important;
-    gap: 12px !important;
+    padding: 14px 10px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03) !important;
+    cursor: pointer !important;
 }
 
-/* Ensures the right-side elements (like the language selector dropdown) stay pinned right */
-.header .nav-bar {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
+.mobile-dropdown-list li:last-child {
+    border-bottom: none !important;
 }
 
-/* Forces the language option selector layout tracking to look normal */
-.lang-selector {
-    direction: ltr !important;
-    text-align: left !important;
+.mobile-dropdown-list li .item-text {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    margin-left: 10px !important;
 }
 
+.mobile-dropdown-list li .item-icon {
+    font-size: 18px !important;
+}
+
+  .section8, .section9 {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 25px !important;
+    }
+
+    .content-body .section2 .video,
+.content-body .section7 .video {
+    width: 340px !important;
+    height: 220px !important;
+}
+}

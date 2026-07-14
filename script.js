@@ -1,48 +1,38 @@
-// =====================================================
-// LANGUAGE SYSTEM - Complete with persistence
-// =====================================================
-
+// ==========================================================================
+// 1. LANGUAGE UNIFIED FILE ENGINE WITH STORAGE PERSISTENCE
+// ==========================================================================
 let translations = {};
 const STORAGE_KEY = 'skylux_language';
 const DEFAULT_LANGUAGE = 'en';
 
-// 1. Fetch text mappings from lang.json
 async function initializeTranslationEngine() {
     try {
-        // Try relative path first; some environments require explicit './'
+        // Fetch the single unified translation database
         let response = await fetch('lang.json');
-        if (!response.ok) {
-            // attempt alternate relative path
-            response = await fetch('./lang.json');
-        }
-        if (!response.ok) throw new Error(`Failed to fetch lang.json (status ${response.status})`);
+        if (!response.ok) response = await fetch('./lang.json');
+        if (!response.ok) throw new Error("Critical: Could not load unified lang.json asset.");
+        
+        // Load the complete language tree maps securely
         translations = await response.json();
         
-        // Get saved language or use default
         let savedLanguage = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANGUAGE;
-
-        // If saved language isn't available in the translations, fallback to DEFAULT_LANGUAGE
+        
+        // Fallback safety filter
         if (!translations[savedLanguage]) {
-            console.warn(`Saved language '${savedLanguage}' not found in translations. Falling back to '${DEFAULT_LANGUAGE}'.`);
             savedLanguage = DEFAULT_LANGUAGE;
             localStorage.setItem(STORAGE_KEY, savedLanguage);
         }
 
         const langSelector = document.querySelector('.lang-selector');
         if (langSelector) {
-            // Ensure the selector has the option value; otherwise set to default
             const optionExists = Array.from(langSelector.options).some(opt => opt.value === savedLanguage);
             langSelector.value = optionExists ? savedLanguage : DEFAULT_LANGUAGE;
 
-            // Apply the translation immediately
             applyTranslations(savedLanguage);
 
-            // Listen for changes in the dropdown
             langSelector.addEventListener('change', (e) => {
                 const selectedLang = e.target.value;
-                // Save to localStorage
                 localStorage.setItem(STORAGE_KEY, selectedLang);
-                // Apply translation
                 applyTranslations(selectedLang);
                 console.log('Language changed to:', selectedLang);
             });
@@ -52,33 +42,32 @@ async function initializeTranslationEngine() {
     }
 }
 
-// 2. Apply translations to all elements with data-i18n attribute
+// 2. TEXT RENDERING ENGINE & AUTOMATED BI-DIRECTIONAL RTL OVERRIDES
 function applyTranslations(lang) {
     if (!translations[lang]) {
-        console.warn('Language not found:', lang);
+        console.warn('Language object layer not found in database registry:', lang);
         return;
     }
     
-    // Update all elements with data-i18n attribute
+    // Update text content across all elements with data-i18n attribute safely
     document.querySelectorAll('[data-i18n]').forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            // Check if content has HTML tags
-            if (translations[lang][key].includes('<') && translations[lang][key].includes('>')) {
-                element.innerHTML = translations[lang][key];
+            const translationString = translations[lang][key];
+            if (translationString.includes('<') && translationString.includes('>')) {
+                element.innerHTML = translationString;
             } else {
-                element.textContent = translations[lang][key];
+                element.textContent = translationString;
             }
         }
     });
 
-    // Handle RTL languages (Dari/Pashto)
+    // Handle RTL layouts (Dari/Pashto) vs LTR layout (English)
     const contentBody = document.querySelector('.content-body');
     const sidebars = document.querySelectorAll('.sidebar, .mobile-dropdown-list');
     const header = document.querySelector('header');
     
     if (lang === 'da' || lang === 'pa') {
-        // RTL setup
         document.documentElement.dir = 'rtl';
         document.documentElement.lang = lang;
         document.body.style.textAlign = 'right';
@@ -89,7 +78,6 @@ function applyTranslations(lang) {
             el.style.textAlign = 'right';
         });
     } else {
-        // LTR setup
         document.documentElement.dir = 'ltr';
         document.documentElement.lang = lang;
         document.body.style.textAlign = 'left';
@@ -100,28 +88,17 @@ function applyTranslations(lang) {
             el.style.textAlign = 'left';
         });
     }
-    
-    console.log('Applied language:', lang);
+    console.log('Applied language rendering layout matrix state:', lang);
 }
 
-// Initialize on DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initializeTranslationEngine);
-} else {
-    initializeTranslationEngine();
-}
-
-
-// =====================================================
-// SIDEBAR NAVIGATION - Toggle & Smooth Scroll
-// =====================================================
-
+// ==========================================================================
+// 3. SIDEBAR NAVIGATION WRAPPER AND INTERFACE RENDERING ENGINE
+// ==========================================================================
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const mobileDropdown = document.getElementById("mobileDropdown");
     const desktopBtn = document.querySelector(".desktop-toggle");
     const mobileBtn = document.querySelector(".mobile-toggle");
-    
     const isMobile = window.innerWidth <= 768;
 
     if (isMobile) {
@@ -141,56 +118,82 @@ function toggleSidebar() {
     }
 }
 
-// Navigate to section with smooth scroll
+// 4. MATHEMATICAL CUBIC EASING SLOW SMOOTH NAVIGATION SCROLLER 
 function navigateToSection(sectionId) {
-    const targetElement = document.getElementById(sectionId);
-    const mobileDropdown = document.getElementById("mobileDropdown");
-    const mobileBtn = document.querySelector(".mobile-toggle");
+    let targetElement = document.getElementById(sectionId);
+    let lookupAlias;
+    if (sectionId === 'privacy-framework-root' || sectionId === 'information-collection') {
+        lookupAlias = 'privacy';
+    } else {
+        lookupAlias = sectionId;
+    }
+    
+    if (!targetElement) return;
 
-    if (targetElement) {
-        // Smooth scroll with custom easing
-        const headerOffset = 80; 
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
-        const startingY = window.pageYOffset;
-        const diff = offsetPosition - startingY;
-        let start = null;
-        const duration = 1200; 
+    const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    const startPosition = window.scrollY;
+    const distance = targetPosition - startPosition;
+    const duration = 1200; 
+    let startTime = null;
 
-        function easeInOutCubic(t) {
-            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-        }
-
-        window.requestAnimationFrame(function step(timestamp) {
-            if (!start) start = timestamp;
-            const time = timestamp - start;
-            let percent = Math.min(time / duration, 1);
-            
-            percent = easeInOutCubic(percent);
-            
-            window.scrollTo(0, startingY + diff * percent);
-            
-            if (time < duration) {
-                window.requestAnimationFrame(step);
-            }
-        });
+    function smoothEaseInOut(t, b, c, d) {
+        t /= d / 2;
+        if (t < 1) return c / 2 * t * t + b;
+        t--;
+        return -c / 2 * (t * (t - 2) - 1) + b;
     }
 
-    // Update active menu item
-    const allNavItems = document.querySelectorAll('.sidebar .list li, .mobile-dropdown-list li');
-    allNavItems.forEach(item => {
-        item.classList.remove('active');
-    });
+    function animationLoop(currentTime) {
+        if (startTime === null) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const nextScrollStep = smoothEaseInOut(timeElapsed, startPosition, distance, duration);
+        window.scrollTo(0, nextScrollStep);
+        if (timeElapsed < duration) {
+            requestAnimationFrame(animationLoop);
+        } else {
+            window.scrollTo(0, targetPosition);
+        }
+    }
+    requestAnimationFrame(animationLoop);
 
-    const matchingItems = document.querySelectorAll(`[data-section="${sectionId}"]`);
-    matchingItems.forEach(item => {
-        item.classList.add('active');
-    });
+    const items = document.querySelectorAll('#mobileDropdown li, #desktopList li');
+    items.forEach(item => item.classList.remove('active'));
 
-    // Close mobile menu after click
-    if (mobileDropdown && mobileDropdown.classList.contains("mobile-open")) {
-        mobileDropdown.classList.remove("mobile-open");
+    const clickedItems = document.querySelectorAll(`li[data-section="${lookupAlias}"]`);
+    clickedItems.forEach(item => item.classList.add('active'));
+
+    const mobileDropdown = document.getElementById('mobileDropdown');
+    const mobileBtn = document.querySelector(".mobile-toggle");
+    if (mobileDropdown) {
+        mobileDropdown.classList.remove('mobile-open');
         if (mobileBtn) mobileBtn.innerHTML = "☰";
     }
+}
+
+// ==========================================================================
+// 5. NATIVE MEDIA PIPELINE CONTROLLER
+// ==========================================================================
+function toggleVideoPlay(videoContainer) {
+    const videoElement = videoContainer.querySelector('video');
+    const playOverlay = videoContainer.querySelector('.video-play-overlay');
+    
+    if (videoElement.paused) {
+        videoElement.play();
+        if (playOverlay) {
+            playOverlay.style.opacity = '0';
+            playOverlay.style.visibility = 'hidden';
+        }
+    } else {
+        videoElement.pause();
+        if (playOverlay) {
+            playOverlay.style.opacity = '1';
+            playOverlay.style.visibility = 'visible';
+        }
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeTranslationEngine);
+} else {
+    initializeTranslationEngine();
 }
