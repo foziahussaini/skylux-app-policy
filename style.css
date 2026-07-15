@@ -364,28 +364,74 @@ body {
 }
 
 /* ==========================================================================
-   MOBILE CONTROLLER BREAKPOINTS ENGINE (PASTE AT THE VERY BOTTOM OF STYLE.CSS)
+   GLOBAL FOOTER COMPONENT
    ========================================================================== */
-@media (max-width: 768px) {
-    
-    /* Target both Section 2 and Section 7 video frames on phone screens */
-    .content-body .section2 .video,
-    .content-body .section7 .video {
-        width: 100% !important;
-        max-width: 370px !important; /* Locks a clean mobile layout card width */
-        height: 185px !important; /* Maintains the 16:9 widescreen ratio dimensions */
-        margin: 25px auto !important; /* Keeps the cards perfectly centered with uniform spacing */
-        border-radius: 12px !important;
-    }
-
-    /* Shrink the overlay triangle size slightly to balance the smaller phone display */
-    .video:hover .play-triangle,
-    .play-triangle {
-        font-size: 28px !important; 
-    }
+.global-site-footer {
+    /* Merges a 92% opaque deep blue layer with your high-tech flight path asset background */
+    background-image: linear-gradient(rgba(11, 19, 43, 0.92), rgba(11, 19, 43, 0.92)), url('assets/hero.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 60px 20px 20px 20px;
+    margin-top: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 3px solid #2a5298; /* Adds a clean bounding line divider */
 }
 
+/* Base Responsive Grid Structure */
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
 
+.footer-column {
+    flex: 1;
+    min-width: 250px; /* Forces vertical column wrapping elements on thin mobile layouts */
+}
+
+/* Navigation Routing Links */
+.footer-nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.footer-nav-link:hover {
+    color: #00c6ff; /* Neon blue link glow match */
+    transform: translateX(4px); /* Subtle shift interaction on hover */
+    text-decoration: underline;
+}
+
+.contact-action-link {
+    transition: all 0.2s ease-in-out;
+}
+
+.contact-action-link:hover {
+    color: #00c6ff !important;
+    text-decoration: underline;
+    opacity: 0.9;
+}
+
+/* Micro Baseline Component */
+.footer-bottom-baseline {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   GLOBAL CONTENT TYPOGRAPHY SETTINGS
+   ========================================================================== */
 h3 {
     font-size: 20px;
     font-weight: 700;
@@ -396,7 +442,8 @@ h3 {
     padding-bottom: 8px;
 }
 
-h4 {
+/* Scope typography changes strictly to policy components to prevent footer bugs */
+.content-body h4 {
     font-size: 16px;
     font-weight: 600;
     color: #2b2b2b;
@@ -429,9 +476,25 @@ h4 {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE COMPRESSION SUITE FOR SMALL MOBILE SCREENS (MAX-WIDTH: 768px)
+   MOBILE CONTROLLER BREAKPOINTS ENGINE
    ========================================================================== */
 @media (max-width: 768px) {
+    /* Target both Section 2 and Section 7 video frames on phone screens */
+    .content-body .section2 .video,
+    .content-body .section7 .video {
+        width: 100% !important;
+        max-width: 320px !important; /* Locks a clean mobile layout card width */
+        height: 185px !important; /* Maintains the 16:9 widescreen ratio dimensions */
+        margin: 25px auto !important; /* Keeps the cards perfectly centered with uniform spacing */
+        border-radius: 12px !important;
+    }
+
+    /* Shrink the overlay triangle size slightly to balance the smaller phone display */
+    .video:hover .play-triangle,
+    .play-triangle {
+        font-size: 28px !important; 
+    }
+
     .page-wrapper {
         margin-left: 0 !important;
         width: 100% !important;
@@ -647,5 +710,12 @@ z-index: 25 !important;
 .content-body .section7 .video {
     width: 340px !important;
     height: 220px !important;
+}
+.contact-item{
+    width: 260px;
+
+    >.contact-action-link{
+        width: 200px;
+    }
 }
 }

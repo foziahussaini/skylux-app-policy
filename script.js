@@ -120,15 +120,31 @@ function toggleSidebar() {
 
 // 4. MATHEMATICAL CUBIC EASING SLOW SMOOTH NAVIGATION SCROLLER 
 function navigateToSection(sectionId) {
-    let targetElement = document.getElementById(sectionId);
-    let lookupAlias;
-    if (sectionId === 'privacy-framework-root' || sectionId === 'information-collection') {
-        lookupAlias = 'privacy';
-    } else {
-        lookupAlias = sectionId;
+    // Structural Fallback Router Redirect mapping engine
+    let resolvedId = sectionId;
+    if (sectionId === 'terms-support-anchor' || sectionId === 'terms') {
+        resolvedId = 'terms'; // Standardize the lookup selector
+    }
+
+    let targetElement = document.getElementById(resolvedId);
+    
+    // Safety check: If targeting failed, search for common fallback classes or tags
+    if (!targetElement && resolvedId === 'terms') {
+        targetElement = document.getElementById('terms-support-anchor');
     }
     
-    if (!targetElement) return;
+    let lookupAlias;
+    if (resolvedId === 'privacy-framework-root' || resolvedId === 'information-collection') {
+        lookupAlias = 'privacy';
+    } else {
+        lookupAlias = resolvedId;
+    }
+    
+    // Explicit debug logger line to catch trace failures in console log (F12)
+    if (!targetElement) {
+        console.error(`Target tracking failure: Could not find container element matching ID: #${resolvedId}`);
+        return;
+    }
 
     const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
     const startPosition = window.scrollY;
@@ -169,6 +185,7 @@ function navigateToSection(sectionId) {
         if (mobileBtn) mobileBtn.innerHTML = "☰";
     }
 }
+
 
 // ==========================================================================
 // 5. NATIVE MEDIA PIPELINE CONTROLLER

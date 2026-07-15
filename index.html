@@ -26,7 +26,7 @@
     </li>
     <!-- END OF NEW ABOUT SELECTION ROW -->
 
-    <li data-section="terms" onclick="navigateToSection('terms')">
+    <li data-section="terms" onclick="navigateToSection('terms-support-anchor')">
         <span class="item-icon">🛠️</span>
         <span class="item-text" data-i18n="nav_terms">Terms &amp; Support</span>
     </li>
@@ -77,7 +77,7 @@
     <span class="item-text" data-i18n="nav_about">About</span>
 </li>
 
-            <li data-section="terms" onclick="navigateToSection('terms')">
+            <li data-section="terms" onclick="navigateToSection('terms-support-anchor')">
                 <span class="item-icon">🛠️</span>
                 <span class="item-text" data-i18n="nav_terms">Terms &amp; Support</span>
             </li>
@@ -97,7 +97,7 @@
     <div class="content-body">
 
         <!-- 1. HERO BANNER: Aligns perfectly inside the layout padding boundaries -->
-        <div class="policy-hero-banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero.jpeg');">
+        <div class="policy-hero-banner" id="about" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('assets/hero.jpeg');">
             <!-- Text Block aligned to the left side of the banner container -->
             <div class="banner-text-left">
                 <h1 class="main-title" data-i18n="main_title">SkyLux App Policy</h1>
@@ -111,10 +111,11 @@
 
         <!-- -----------------------------------------section1 introduction-------------------------------------------- -->
         <!-- START OF SECTION 1 -->
-        <div class="section1" id="about">
+        <div class="section1">
             <p class="policy-text" data-i18n="intro_p1">
                 SkyLux is an all-in-one digital travel platform engineered to streamline global transit across our mobile application and official website. Our ecosystem bypasses the rushed stress of traditional booking by instantly connecting you with real-time, up-to-the-minute flight schedules and live pricing pulled directly from hundreds of airline databases.
             </p>
+            <p class="policy-text" data-i18n="intro_p3">To achieve this high-speed synchronization, our system opens secure, encrypted connections to live airline data pipelines the moment you submit a search query. We dynamically stream real-time flight inventory arrays, terminal configurations, seat maps, and localized pricing matrices directly from official carrier engines. This live integration eliminates artificial delays, protects you from outdated booking records, and ensures that the flight metrics shown on your screen perfectly match active airline inventories.</p>
             <p class="policy-text" data-i18n="intro_p2">
                 At SkyLux, we prioritize your trust and are fully committed to protecting your privacy. This policy outlines how we gather, utilize, protect, and retain your data to provide you with a reliable travel planning ecosystem. By accessing our platform or creating an account, you consent to these operational data management practices. If you do not agree with the terms outlined in this Privacy Policy, please discontinue your use of our Services.
             </p>
@@ -129,7 +130,7 @@
     <!-- FIX: Ensure toggleVideoPlay starts with a lowercase 't' -->
     <div class="video" onclick="toggleVideoPlay(this)">
         <div class="video-relative-wrapper">
-            <video src="assets/intro_app.mp4" loop muted playsinline></video>
+            <video src="assets/intro_app.mp4" loop playsinline></video>
             <div class="video-play-overlay">
                 <span class="play-triangle">▶</span>
             </div>
@@ -156,7 +157,7 @@
             </p>
 
             <p class="policy-text" data-i18n="admin_support">
-                If you have any questions about how your information is handled, or if you want to request data changes, you can message our team directly. To get in touch, please use the communication links provided in the "Help & Support" menu screen inside the application.
+                If you have any questions about how your information is handled, or if you want to request data changes, you can message our team directly. To get in touch, please use the communication links provided in the <a href="javascript:void(0)" onclick="navigateToSection('terms')" class="policy-inline-route-link" style="color: #00c6ff; text-decoration: underline; font-weight: 600; cursor: pointer;">Help &amp; Support</a> menu screen inside the application.
             </p>
         </div>
         <!-- END OF SECTION 3: DATA ADMINISTRATION -->
@@ -387,119 +388,523 @@
         <!-- ==================================================================== -->
         <!-- END OF SECTION 7: APPLICATION WALKTHROUGH VIDEO -->
         <!-- ==================================================================== -->
-
-        <!-- START OF SECTION 8: FEATURES SECTION (ANCHOR LINK POINT) -->
-        <div class="section8" id="features">
-            
-            <h3 class="section-title" data-i18n="ai_main_title">5.App Features &amp; Capabilities </h3>
-
-            <p class="policy-text" data-i18n="features_intro" style="margin-top: 15px;">
-                The SkyLux application delivers an advanced suite of travel management utilities optimized directly for modern devices. Our core platform capabilities include:
-            </p>
-
-            <ul class="features-grid-list">
-                <li><strong data-i18n="feat1_title">User Authentication:</strong> <span data-i18n="feat1_desc">Secure account registration and profile login protocols.</span></li>
-                <li><strong data-i18n="feat2_title">Flight Search Engine:</strong> <span data-i18n="feat2_desc">Live multi-carrier database queries for real-time route configurations.</span></li>
-                <li><strong data-i18n="feat3_title">Search Results View:</strong> <span data-i18n="feat3_desc">Comprehensive, filterable displays to evaluate flight choices on a single screen.</span></li>
-                <li><strong data-i18n="feat4_title">Flight Details:</strong> <span data-i18n="feat4_desc">Granular structural breakdowns of routes, transit layovers, and airline policies.</span></li>
-                <li><strong data-i18n="feat5_title">Passenger Manifests:</strong> <span data-i18n="feat5_desc">Centralized data management to store, edit, and fill travel records.</span></li>
-                <li><strong data-i18n="feat6_title">Seat Selection Matrix:</strong> <span data-i18n="feat6_desc">Interactive digital cabin layouts to preview and secure preferred seating.</span></li>
-                <li><strong data-i18n="feat7_title">Extra Baggage Allocation:</strong> <span data-i18n="feat7_desc">Simple in-app configurations to add extra luggage weight limits during booking.</span></li>
-                <li><strong data-i18n="feat8_title">Secure Online Payment:</strong> <span data-i18n="feat8_desc">Encrypted transactional vectors operating over certified network channels.</span></li>
-                <li><strong data-i18n="feat9_title">Digital Boarding Passes:</strong> <span data-i18n="feat9_desc">Automated generation, viewing, and caching of active digital travel tickets.</span></li>
-                <li><strong data-i18n="feat10_title">Profile Management:</strong> <span data-i18n="feat10_desc">Personalized account metrics dashboard controlling platform security parameters.</span></li>
-                <li><strong data-i18n="feat11_title">Favorites Dashboard:</strong> <span data-i18n="feat11_desc">Quick-save profile pinning for frequent flights and preferred routing lines.</span></li>
-                <li><strong data-i18n="feat12_title">Push Notifications:</strong> <span data-i18n="feat12_desc">Real-time background telemetry updates detailing delay statuses and gate updates.</span></li>
-                <li><strong data-i18n="feat13_title">Historical Trip Logs:</strong> <span data-i18n="feat13_desc">A fully archived structural repository of previous, current, and planned trips.</span></li>
-                <li><strong data-i18n="feat14_title">Multi-Language Suite:</strong> <span data-i18n="feat14_desc">On-the-fly regional localization switches to adjust application translation engines.</span></li>
-                <li><strong data-i18n="feat15_title">Currency Switcher:</strong> <span data-i18n="feat15_desc">Dynamic exchange tracking displaying automated baseline values based on choices.</span></li>
-                <li><strong data-i18n="feat16_title">Light &amp; Dark Themes:</strong> <span data-i18n="feat16_desc">System-wide display controls optimized cleanly for light and dark environments.</span></li>
-                <li><strong data-i18n="feat17_title">Cloud Storage Sync:</strong> <span data-i18n="feat17_desc">High-speed data synchronization architectures managed via Firebase Firestore frameworks.</span></li>
-                <li><strong data-i18n="feat18_title">AI Travel Assistant:</strong> <span data-i18n="feat18_desc">Conversational assistant handling route optimization, dynamic summaries, and support.</span></li>
-            </ul>
-        </div>
-        <!-- ==================================================================== -->
-        <!-- END OF SECTION 8: FEATURES SECTION -->
-        <!-- ==================================================================== -->
-        <!-- ==================================================================== -->
-        <!-- START OF SECTION 9: AI TRAVEL ASSISTANT -->
-        <!-- ==================================================================== -->
-        <div class="section9" id="ai-assistant">
-            <!-- Visual Hero Header Banner for Section 9 -->
-            <div class="policy-hero-banner features-banner-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('assets/ai.jpeg');">
-                <div class="banner-text-left">
-                    <h3 class="main-title" data-i18n="features_main_title" style="color: #ffffff !important; border: none; margin: 0; padding: 0;">6.AI Travel Assistant</h3>
-                </div>
-            </div>
-
-            <p class="policy-text" data-i18n="ai_main_intro">
-                SkyLux integrates an AI-powered conversational concierge designed to streamline flight optimization, automate reservation queries, and coordinate immediate customer service channels.
-            </p>
-
-            <!-- SUBSECTION 9.1 -->
-            <div class="policy-subsection">
-                <h4 data-i18n="ai_sub1_title">6.1 Information Processed by the AI Assistant</h4>
-                <p class="policy-text" data-i18n="ai_sub1_intro">
-                    When you communicate with our automated helper, our engine securely intercepts and reads the following explicit data inputs:
-                </p>
-                <ul>
-                    <li><strong data-i18n="ai_msg_title">User Queries:</strong> <span data-i18n="ai_msg_desc">Natural language text strings, system prompts, and custom support requests.</span></li>
-                    <li><strong data-i18n="ai_search_title">Search Directives:</strong> <span data-i18n="ai_search_desc">Target destination parameters, schedule matrices, and travel cabin criteria.</span></li>
-                    <li><strong data-i18n="ai_book_title">Ticketing Inquiries:</strong> <span data-i18n="ai_book_desc">Questions regarding reservation numbers, checked bag rules, and itinerary updates.</span></li>
-                    <li><strong data-i18n="ai_feed_title">System Diagnostic Notes:</strong> <span data-i18n="ai_feed_desc">Manual performance scores, conversation evaluation tags, and user bug tickets.</span></li>
-                </ul>
-            </div>
-
-            <!-- SUBSECTION 6.2 -->
-            <div class="policy-subsection">
-                <h4 data-i18n="ai_sub2_title">6.2 Data Retrieval Mechanics &amp; AI Utilization</h4>
-                <p class="policy-text" data-i18n="ai_sub2_intro">
-                    Your interactions operate over advanced network nodes built to parse query strings and deliver immediate, verified aviation insights:
-                </p>
-                <ul>
-                    <li><strong data-i18n="ai_api_title">Instant Multi-Airline Auditing:</strong> <span data-i18n="ai_api_desc">The assistant captures your message and instantly verifies live datasets across official global airline sites via secure, enterprise developer API pipelines.</span></li>
-                    <li><strong data-i18n="ai_speed_title">Sub-Second Processing:</strong> <span data-i18n="ai_speed_desc">Our system compiles live schedule availability arrays, processes pricing configurations, and delivers an authentic response back to your device screen within a second.</span></li>
-                    <li><strong data-i18n="ai_law_title">Aviation Regulatory Alignment:</strong> <span data-i18n="ai_law_desc">All conversational choices, route summaries, and flight metrics are sourced from verified carrier records and fully match current international aviation laws and global transit policies.</span></li>
-                </ul>
-            </div>
-
-            <!-- SUBSECTION 6.3 & 6.4 -->
-            <div class="policy-subsection">
-                <h4 data-i18n="ai_sub3_title">6.3 User Responsibilities &amp; Operations Boundaries</h4>
-                
-                <p class="policy-text" data-i18n="ai_security_note">
-                    <strong>Data Hygiene Requirements:</strong> Users must completely avoid sharing highly sensitive details—such as user account passwords, specific bank coordinates, credit card numbers, or government-issued passport codes—inside the chat window. The engine is tuned for search navigation, not data transfers.
-                </p>
-
-                <div class="legal-notice-card warning-accent">
-                    <span class="card-icon">⚠️</span>
-                    <div class="card-content">
-                        <strong data-i18n="ai_verify_title">Verification Contingency &amp; Human Escalation:</strong>
-                        <p class="policy-text smaller-text" data-i18n="ai_verify_desc">
-                            While the assistant communicates over active live API channels to pull precise data logs, automated text generation can occasionally encounter connection delays or processing errors. Please cross-reference pricing matrices, active visa rules, and baggage laws before committing financial investments. If the system hits a code error or a user requests custom help, the app instantly hands the session off to a live customer care agent.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ==================================================================== -->
-        <!-- END OF SECTION 9: AI TRAVEL ASSISTANT -->
-        <!-- ==================================================================== -->
-
-
-
-
-    </div> <!-- END OF .content-body -->
-
-
+         <!-- ========================================== -->
+<!-- SECTION 8: MARKETING COMMUNICATIONS        -->
+<!-- ========================================== -->
+<div class="section8" id="marketing-communications">
+    <!-- Section Header with Policy Class Styling -->
+    <h3 class="policy-section-title"> 
+        <span data-i18n="marketing_title">5.Marketing Communications &amp; Your Choices</span>
+    </h3>
     
+    <p class="policy-text" data-i18n="marketing_intro">
+        If you receive marketing messages from us, you can opt out at any time by:
+    </p>
+    
+    <!-- Structured Core Action Points -->
+    <ul class="policy-list">
+        <li>
+            <span data-i18n="marketing_opt1">Using the "unsubscribe" link in our emails.</span>
+        </li>
+        <li>
+            <span data-i18n="marketing_opt2">Adjusting your notification settings in the app.</span>
+        </li>
+        <li>
+            <span data-i18n="marketing_opt3">Contacting us using the details below.</span>
+        </li>
+    </ul>
+    
+    <p class="policy-text important-notice" data-i18n="marketing_footer">
+        Even if you opt out of marketing, we may still send you essential service messages, such as booking confirmations, schedule changes, and security alerts.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 9: YOUR PRIVACY RIGHTS            -->
+<!-- ========================================== -->
+<div class="section9" id="privacy-rights">
+    <h3 class="policy-section-title">
+        <span data-i18n="rights_title">9.Your Privacy Rights</span>
+    </h3>
+    
+    <p class="policy-text" data-i18n="rights_intro">
+        Depending on where you live, you may have some or all of the following rights regarding your personal information:
+    </p>
+    
+    <!-- Symmetrical Attribute Definition Mapping -->
+    <ul class="policy-list rights-matrix">
+        <li>
+            <strong data-i18n="right_access_lbl">Access</strong> — 
+            <span data-i18n="right_access_desc">request a copy of the personal data we hold about you.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_correct_lbl">Correction</strong> — 
+            <span data-i18n="right_correct_desc">ask us to fix inaccurate or incomplete data.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_delete_lbl">Deletion</strong> — 
+            <span data-i18n="right_delete_desc">ask us to delete your data, subject to legal exceptions.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_port_lbl">Portability</strong> — 
+            <span data-i18n="right_port_desc">receive your data in a portable format.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_restrict_lbl">Restriction / Objection</strong> — 
+            <span data-i18n="right_restrict_desc">limit or object to certain processing.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_withdraw_lbl">Withdraw consent</strong> — 
+            <span data-i18n="right_withdraw_desc">where processing is based on consent.</span>
+        </li>
+        <li>
+            <strong data-i18n="right_optout_lbl">Opt out of sale/sharing</strong> — 
+            <span data-i18n="right_optout_desc">where applicable under laws such as the California Consumer Privacy Act (CCPA/CPRA). (Note: SkyLux does not sell personal information.)</span>
+        </li>
+        <li>
+            <strong data-i18n="right_discrim_lbl">Non-discrimination</strong> — 
+            <span data-i18n="right_discrim_desc">we will not treat you unfairly for exercising your rights.</span>
+        </li>
+    </ul>
+    
+    <p class="policy-text" data-i18n="rights_footer">
+        To exercise any of these rights, contact us using the details in the "Contact Us" section. We may need to verify your identity before responding. We will respond within the timeframe required by applicable law. You also have the right to lodge a complaint with your local data protection authority.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 10: INTERNATIONAL DATA TRANSFERS   -->
+<!-- ========================================== -->
+<div class="section10" id="data-transfers">
+    <h3 class="policy-section-title">
+        <span data-i18n="transfers_title">10. International Data Transfers</span>
+    </h3>
+    <p class="policy-text" data-i18n="transfers_desc">
+        SkyLux operates globally, and your information may be transferred to, stored in, or processed in countries other than your own, including countries that may have different data protection laws. Where we transfer personal data internationally, we use appropriate safeguards, such as standard contractual clauses or other legally recognized mechanisms, to protect your information.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 11: CHILDREN'S PRIVACY             -->
+<!-- ========================================== -->
+<div class="section11" id="childrens-privacy">
+    <h3 class="policy-section-title">
+        <span data-i18n="children_title">11. Children's Privacy</span>
+    </h3>
+    <p class="policy-text" data-i18n="children_p1">
+        The Services are not directed to children under the age of 16, and we do not knowingly collect personal information from children without appropriate consent. 
+    </p>
+    <p class="policy-text" data-i18n="children_p2">
+        When an adult books travel for a minor, the adult is responsible for providing the minor's information lawfully. If you believe a child has provided us with personal information without proper consent, please contact us so we can take appropriate action.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 12: THIRD-PARTY LINKS & SERVICES   -->
+<!-- ========================================== -->
+<div class="section12" id="third-party-links">
+    <h3 class="policy-section-title"> 
+        <span data-i18n="links_title">12. Third-Party Links &amp; Services</span>
+    </h3>
+    <p class="policy-text" data-i18n="links_desc">
+        The Services may contain links to third-party websites, airlines, or services that we do not control. This Privacy Policy does not apply to those third parties. We encourage you to review the privacy policies of any third-party services you use.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 13: AUTOMATED DECISION-MAKING      -->
+<!-- ========================================== -->
+<div class="section13" id="automated-decisions">
+    <h3 class="policy-section-title"> 
+        <span data-i18n="automated_title">13. Automated Decision-Making</span>
+    </h3>
+    <p class="policy-text" data-i18n="automated_desc">
+        Some features, such as fare recommendations and the AI Travel Assistant, rely on automated processing to personalize your experience. We do not use automated decision-making that produces legal or similarly significant effects about you without appropriate safeguards. Where such processing applies, you may have the right to request human review.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 14: DATA BREACH NOTIFICATION       -->
+<!-- ========================================== -->
+<div class="section14" id="data-breach">
+    <h3 class="policy-section-title">
+        <span data-i18n="breach_title">14. Data Breach Notification</span>
+    </h3>
+    <p class="policy-text" data-i18n="breach_desc">
+        In the event of a data breach that affects your personal information, we will take prompt action to investigate and contain the incident. Where required by law, we will notify the relevant authorities and affected users within the applicable timeframe.
+    </p>
+</div>
+
+<!-- ========================================== -->
+<!-- SECTION 15: CHANGES TO THIS POLICY        -->
+<!-- ========================================== -->
+<div class="section15" id="policy-changes">
+    <h3 class="policy-section-title">
+        <span data-i18n="changes_title">15. Changes to This Privacy Policy</span>
+    </h3>
+    <p class="policy-text" data-i18n="changes_p1">
+        We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. 
+    </p>
+    <p class="policy-text" data-i18n="changes_p2">
+        When we make material changes, we will update the "Last updated" date above and, where appropriate, notify you through the app or by email. Your continued use of the Services after changes take effect means you accept the updated policy.
+    </p>
+</div>
+    <!-- START OF SECTION 17: FEATURES SECTION (ANCHOR LINK POINT) -->
+<div class="section17" id="features">
+    <div class="policy-hero-banner features-banner-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('assets/feature.jpeg');">
+                <div class="banner-text-left">
+                    <h2 class="section-title" data-i18n="section17_main_title" style="color: #ffffff !important; border: none; margin: 0; padding: 0;">App Features &amp; Capabilities</h2>
+                </div>
+            </div>
+
+    <p class="policy-text" data-i18n="features_intro" style="margin-top: 15px;">
+        The SkyLux application delivers an advanced suite of travel management utilities optimized directly for modern devices. Our core platform capabilities include:
+    </p>
+
+    <ul class="features-grid-list">
+        <li><strong data-i18n="feat1_title">User Authentication:</strong> <span data-i18n="feat1_desc">Secure account registration and profile login protocols.</span></li>
+        <li><strong data-i18n="feat2_title">Flight Search Engine:</strong> <span data-i18n="feat2_desc">Live multi-carrier database queries for real-time route configurations.</span></li>
+        <li><strong data-i18n="feat3_title">Search Results View:</strong> <span data-i18n="feat3_desc">Comprehensive, filterable displays to evaluate flight choices on a single screen.</span></li>
+        <li><strong data-i18n="feat4_title">Flight Details:</strong> <span data-i18n="feat4_desc">Granular structural breakdowns of routes, transit layovers, and airline policies.</span></li>
+        <li><strong data-i18n="feat5_title">Passenger Manifests:</strong> <span data-i18n="feat5_desc">Centralized data management to store, edit, and fill travel records.</span></li>
+        <li><strong data-i18n="feat6_title">Seat Selection Matrix:</strong> <span data-i18n="feat6_desc">Interactive digital cabin layouts to preview and secure preferred seating.</span></li>
+        <li><strong data-i18n="feat7_title">Extra Baggage Allocation:</strong> <span data-i18n="feat7_desc">Simple in-app configurations to add extra luggage weight limits during booking.</span></li>
+        <li><strong data-i18n="feat8_title">Secure Online Payment:</strong> <span data-i18n="feat8_desc">Encrypted transactional vectors operating over certified network channels.</span></li>
+        <li><strong data-i18n="feat9_title">Digital Boarding Passes:</strong> <span data-i18n="feat9_desc">Automated generation, viewing, and caching of active digital travel tickets.</span></li>
+        <li><strong data-i18n="feat10_title">Profile Management:</strong> <span data-i18n="feat10_desc">Personalized account metrics dashboard controlling platform security parameters.</span></li>
+        <li><strong data-i18n="feat11_title">Favorites Dashboard:</strong> <span data-i18n="feat11_desc">Quick-save profile pinning for frequent flights and preferred routing lines.</span></li>
+        <li><strong data-i18n="feat12_title">Push Notifications:</strong> <span data-i18n="feat12_desc">Real-time background telemetry updates detailing delay statuses and gate updates.</span></li>
+        <li><strong data-i18n="feat13_title">Historical Trip Logs:</strong> <span data-i18n="feat13_desc">A fully archived structural repository of previous, current, and planned trips.</span></li>
+        <li><strong data-i18n="feat14_title">Multi-Language Suite:</strong> <span data-i18n="feat14_desc">On-the-fly regional localization switches to adjust application translation engines.</span></li>
+        <li><strong data-i18n="feat15_title">Currency Switcher:</strong> <span data-i18n="feat15_desc">Dynamic exchange tracking displaying automated baseline values based on choices.</span></li>
+        <li><strong data-i18n="feat16_title">Light &amp; Dark Themes:</strong> <span data-i18n="feat16_desc">System-wide display controls optimized cleanly for light and dark environments.</span></li>
+        <li><strong data-i18n="feat17_title">Cloud Storage Sync:</strong> <span data-i18n="feat17_desc">High-speed data synchronization architectures managed via Firebase Firestore frameworks.</span></li>
+        <li><strong data-i18n="feat18_title">AI Travel Assistant:</strong> <span data-i18n="feat18_desc">Conversational assistant handling route optimization, dynamic summaries, and support.</span></li>
+    </ul>
+</div>
+<!-- END OF SECTION 17: FEATURES SECTION -->
+
+        <!-- ==================================================================== -->
+        <!-- START OF SECTION 16: AI TRAVEL ASSISTANT -->
+<!-- ==================================================================== -->
+<!-- SECTION 16: AI Travel Assistant -->
+<!-- START OF SECTION 16: AI TRAVEL ASSISTANT -->
+<!-- ==================================================================== -->
+<!-- SECTION 16: AI Travel Assistant -->
+<div class="section16" id="ai-assistant">
+    
+    <!-- AI Travel Assistant Banner with Tint Overlay -->
+    <div class="policy-hero-banner features-banner-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('assets/ai.jpeg');">
+        <div class="banner-text-left">
+            <h3 class="main-title" data-i18n="section16_main_title" style="color: #ffffff !important; border: none; margin: 0; padding: 0;">AI Travel Assistant</h3>
+        </div>
+    </div>
+
+    <!-- Academic Transit AI Foundation Overview (Injected under the picture) -->
+    <div class="policy-academic-context" style="margin: 20px 0; padding: 15px; background-color: rgba(255, 255, 255, 0.03); border-left: 4px solid #2a5298; border-radius: 4px;">
+        <p class="policy-text contextual-theory" data-i18n="ai_academic_theory" style="font-size: 0.95rem; line-height: 1.6; margin: 0;">
+            In many cases, it is hard to fully understand the relationships between the characteristics of the transportation system; therefore, AI methods can be presented as a smart solution for such complex systems that can’t be managed using traditional methods. Many researchers have demonstrated the advantages of AI in transport. An example of that includes transforming the traffic sensors on the road into a smart agent that detects accidents automatically and predicts future traffic conditions. Also, there are many AI methods used in transport such as ANNs. ANNs can be used for road planning, public transport [20,21] Traffic Incident Detection; and predicting traffic conditions. It is classified into supervised and unsupervised learning methods. Supervised methods include Support Vector Machine (SVM), Probabilistic Neural Network (PNN), Radial Basis Network (RBN), K-Nearest Neighbors and Decision Tree, etc. while unsupervised NNs include greedy layer-wise and cluster analysis.
+        </p>
+    </div>
+       
+    <p class="policy-text" data-i18n="ai_main_intro">
+        SkyLux integrates an AI-powered conversational concierge designed to streamline flight optimization, automate reservation queries, and coordinate immediate customer service channels.
+    </p>
+
+    <!-- SUBSECTION 16.1 -->
+    <div class="policy-subsection">
+        <h4 data-i18n="ai_sub1_title">1. Information Processed by the AI Assistant</h4>
+        <p class="policy-text" data-i18n="ai_sub1_intro">
+            When you communicate with our automated helper, our engine securely intercepts and reads the following explicit data inputs:
+        </p>
         <ul>
-            <li data-i18n="sec4_li3_1">Enable/Disable AI Assistant</li>
-            <li data-i18n="sec4_li3_2">Clear AI Chat History</li>
-            <li data-i18n="sec4_li3_3">Delete AI Conversation Data</li>
-            <li data-i18n="sec4_li3_4">Manage AI Privacy Preferences</li>
+            <li><strong data-i18n="ai_msg_title">User Queries:</strong> <span data-i18n="ai_msg_desc">Natural language text strings, system prompts, and custom support requests.</span></li>
+            <li><strong data-i18n="ai_search_title">Search Directives:</strong> <span data-i18n="ai_search_desc">Target destination parameters, schedule matrices, and travel cabin criteria.</span></li>
+            <li><strong data-i18n="ai_book_title">Ticketing Inquiries:</strong> <span data-i18n="ai_book_desc">Questions regarding reservation numbers, checked bag rules, and itinerary updates.</span></li>
+            <li><strong data-i18n="ai_feed_title">System Diagnostic Notes:</strong> <span data-i18n="ai_feed_desc">Manual performance scores, conversation evaluation tags, and user bug tickets.</span></li>
         </ul>
+    </div>
+
+    <!-- SUBSECTION 16.2 -->
+    <div class="policy-subsection">
+        <h4 data-i18n="ai_sub2_title">2. Data Retrieval Mechanics &amp; AI Utilization</h4>
+        <p class="policy-text" data-i18n="ai_sub2_intro">
+            Your interactions operate over advanced network nodes built to parse query strings and deliver immediate, verified aviation insights:
+        </p>
+        <ul>
+            <li><strong data-i18n="ai_api_title">Instant Multi-Airline Auditing:</strong> <span data-i18n="ai_api_desc">The assistant captures your message and instantly verifies live datasets across official global airline sites via secure, enterprise developer API pipelines.</span></li>
+            <li><strong data-i18n="ai_speed_title">Sub-Second Processing:</strong> <span data-i18n="ai_speed_desc">Our system compiles live schedule availability arrays, processes pricing configurations, and delivers an authentic response back to your device screen within a second.</span></li>
+            <li><strong data-i18n="ai_law_title">Aviation Regulatory Alignment:</strong> <span data-i18n="ai_law_desc">All conversational choices, route summaries, and flight metrics are sourced from verified carrier records and fully match current international aviation laws and global transit policies.</span></li>
+        </ul>
+    </div>
+
+    <!-- SUBSECTION 16.3 -->
+    <div class="policy-subsection">
+        <h4 data-i18n="ai_sub3_title">3. User Responsibilities &amp; Operations Boundaries</h4>
+        
+        <p class="policy-text" data-i18n="ai_security_note">
+            <strong>Data Hygiene Requirements:</strong> Users must completely avoid sharing highly sensitive details—such as user account passwords, specific bank coordinates, credit card numbers, or government-issued passport codes—inside the chat window. The engine is tuned for search navigation, not data transfers.
+        </p>
+
+        <div class="legal-notice-card warning-accent">
+            <span class="card-icon">⚠️</span>
+            <div class="card-content">
+                <strong data-i18n="ai_verify_title">Verification Contingency &amp; Human Escalation:</strong>
+                <p class="policy-text smaller-text" data-i18n="ai_verify_desc">
+                    While the assistant communicates over active live API channels to pull precise data logs, automated text generation can occasionally encounter connection delays or processing errors. Please cross-reference pricing matrices, active visa rules, and baggage laws before committing financial investments. If the system hits a code error or a user requests custom help, the app instantly hands the session off to a live customer care agent.
+                </p>
+            </div>
+        </div>
+    </div>
+</div> <!-- Closes the .section16 wrapper correctly -->
+
+<!-- ==================================================================== -->
+<!-- END OF SECTION 16: AI TRAVEL ASSISTANT -->
+<!-- ==================================================================== -->
+<!-- ==================================================================== -->
+<!-- START OF SECTION 18: TERMS & SUPPORT CENTRE (NAVIGATION ANCHOR)     -->
+<!-- ==================================================================== -->
+<div class="section18" id="terms-support-anchor">
+    
+    <!-- Visual Hero Header Banner for Terms & Support -->
+    <div class="policy-hero-banner features-banner-bg" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('assets/term.jpeg');">
+        <div class="banner-text-left">
+            <h3 class="main-title" data-i18n="support_hero_title" style="color: #ffffff !important; border: none; margin: 0; padding: 0;">Terms &amp; Support</h3>
+        </div>
+    </div>
+
+    <!-- Introduction Framework -->
+    <p class="policy-text" data-i18n="support_welcome" style="margin-top: 20px; font-size: 1.05rem; font-weight: 500;">
+        Welcome to the FlyTogether Support Centre. Our platform is designed for self-service, empowering you to manage your travel independently whilst providing assistance when you need it most.
+    </p>
+
+    <!-- SUBSECTION 1: QUICK HELP GRID -->
+    <div class="policy-subsection">
+        <h4 data-i18n="quick_help_title" class="sub-heading-accent">1 Quick Help Categories</h4>
+        
+        <!-- Grid Axis: Booking Support -->
+        <h5 data-i18n="qh_booking_header" style="margin: 15px 0 5px 0; color: #ffffff;">🎫 Booking Support</h5>
+        <ul class="policy-list">
+            <li><strong data-i18n="qh_b1_lbl">Making a Reservation:</strong> <span data-i18n="qh_b1_desc">Visit our Booking Platform and follow our streamlined process.</span></li>
+            <li><strong data-i18n="qh_b2_lbl">Understanding Direct Airline Connection:</strong> <span data-i18n="qh_b2_desc">Our platform connects you directly with airlines using modern booking technology.</span></li>
+            <li><strong data-i18n="qh_b3_lbl">Payment Processing:</strong> <span data-i18n="qh_b3_desc">Airlines charge your card directly - we never handle payments.</span></li>
+        </ul>
+
+        <!-- Grid Axis: Mobile App Support -->
+        <h5 data-i18n="qh_mobile_header" style="margin: 15px 0 5px 0; color: #ffffff;">📱 Mobile App Support</h5>
+        <ul class="policy-list">
+            <li><strong data-i18n="qh_m1_lbl">Download:</strong> <span data-i18n="qh_m1_desc">Get the app from the App Store.</span></li>
+            <li><strong data-i18n="qh_m2_lbl">Trip Management:</strong> <span data-i18n="qh_m2_desc">Create trips and add flights for comprehensive travel organisation.</span></li>
+            <li><strong data-i18n="qh_m3_lbl">Flight Intelligence:</strong> <span data-i18n="qh_m3_desc">Access real-time data powered by industry-leading aviation data sources.</span></li>
+            <li><strong data-i18n="qh_m4_lbl">Notifications:</strong> <span data-i18n="qh_m4_desc">Enable alerts for proactive travel updates.</span></li>
+        </ul>
+
+        <!-- Grid Axis: Payment & Transparency -->
+        <h5 data-i18n="qh_pay_header" style="margin: 15px 0 5px 0; color: #ffffff;">💳 Payment &amp; Transparency</h5>
+        <ul class="policy-list">
+            <li><strong data-i18n="qh_p1_lbl">Direct Airline Payments:</strong> <span data-i18n="qh_p1_desc">Airlines process your payment directly using modern booking technology.</span></li>
+            <li><strong data-i18n="qh_p2_lbl">Credit Card Benefits:</strong> <span data-i18n="qh_p2_desc">Maintain all your card rewards and protections.</span></li>
+            <li><strong data-i18n="qh_p3_lbl">No Hidden Fees:</strong> <span data-i18n="qh_p3_desc">We display transparent published fares with any available contractual rates.</span></li>
+            <li><strong data-i18n="qh_p4_lbl">Cashback Programme:</strong> <span data-i18n="qh_p4_desc">Members receive rewards on completed bookings.</span></li>
+        </ul>
+    </div>
+
+    <!-- SUBSECTION .2: FLIGHT CHANGES -->
+    <div class="policy-subsection">
+        <h4 data-i18n="changes_title1" class="sub-heading-accent">2 Flight Changes &amp; Modifications</h4>
+        <p class="policy-text" data-i18n="changes_intro">
+            Due to our modern booking technology integration, you have several options for managing your booking via our operational self-service streams:
+        </p>
+        <ul class="policy-list">
+            <li><strong data-i18n="ch_opt1_lbl">Direct Airline Contact:</strong> <span data-i18n="ch_opt1_desc">You can often contact the airline directly for changes.</span></li>
+            <li><strong data-i18n="ch_opt2_lbl">Our Assistance:</strong> <span data-i18n="ch_opt2_desc">Contact us and we’ll liaise with the airline on your behalf.</span></li>
+            <li><strong data-i18n="ch_opt3_lbl">Online Management:</strong> <span data-i18n="ch_opt3_desc">Use airline websites or apps with your booking reference.</span></li>
+        </ul>
+        
+        <h5 data-i18n="role_header" style="margin: 15px 0 5px 0; color: #ffffff;">Our Operational Boundary Role</h5>
+        <p class="policy-text" data-i18n="role_desc">
+            We facilitate communication between you and the airline but don’t make changes directly. This ensures you maintain your direct relationship with the airline whilst receiving our support when needed.
+        </p>
+    </div>
+
+    <!-- SUBSECTION 3: REFUNDS & CANCELLATIONS (SAFETY CONDITIONAL BINDING) -->
+    <div class="policy-subsection">
+        <h4 data-i18n="refunds_title" class="sub-heading-accent">3 Refunds &amp; Cancellations</h4>
+        
+        <!-- Safety Override Guardrail Notice -->
+        <div class="legal-notice-card warning-accent" style="margin-bottom: 15px;">
+            <span class="card-icon">⚠️</span>
+            <div class="card-content">
+                <strong data-i18n="refunds_guard_title">Airline-Dependent Policies Directive:</strong>
+                <p class="policy-text smaller-text" data-i18n="refunds_guard_desc">
+                    All refund policies, change fees, cancellation terms, IROPs (Irregular Operations) handling, and other booking modifications are determined strictly by the airline, not us. We don’t handle money or make decisions on these matters.
+                </p>
+            </div>
+        </div>
+
+        <ul class="policy-list">
+            <li><strong data-i18n="ref_p1_lbl">Refund Eligibility:</strong> <span data-i18n="ref_p1_desc">Determined entirely by airline policies and fare rules.</span></li>
+            <li><strong data-i18n="ref_p2_lbl">Processing Time:</strong> <span data-i18n="ref_p2_desc">Varies by airline (typically 7-21 business days).</span></li>
+            <li><strong data-i18n="ref_p3_lbl">Our Involvement:</strong> <span data-i18n="ref_p3_desc">We can assist with refund requests but don’t process payments.</span></li>
+            <li><strong data-i18n="ref_p4_lbl">Direct Airline Contact:</strong> <span data-i18n="ref_p4_desc">You may contact airlines directly for refund status updates.</span></li>
+        </ul>
+    </div>
+
+        <!-- SECTION 18: FREQUENTLY ASKED QUESTIONS -->
+    <div class="policy-subsection">
+        <h4 data-i18n="faq_title" class="sub-heading-accent">4 Frequently Asked Questions</h4>
+        
+        <div class="faq-item" style="margin-bottom: 15px;">
+            <strong class="faq-question" style="color: #ffffff; display: block; margin-bottom: 4px;" data-i18n="faq_q1">How does the direct payment system work?</strong>
+            <p class="policy-text" data-i18n="faq_a1">Our modern booking technology connects you directly with airlines. When you book, the airline charges your card directly - we never touch your money. This means you keep all credit card benefits and maintain a direct relationship with the airline.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px;">
+            <strong class="faq-question" style="color: #ffffff; display: block; margin-bottom: 4px;" data-i18n="faq_q2">Can I modify my booking myself?</strong>
+            <p class="policy-text" data-i18n="faq_a2">Often yes! Because we use modern booking technology, you may be able to manage your booking directly with the airline using your booking reference. For complex changes, contact us and we’ll assist.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px;">
+            <strong class="faq-question" style="color: #ffffff; display: block; margin-bottom: 4px;" data-i18n="faq_q3">What about refunds?</strong>
+            <p class="policy-text" data-i18n="faq_a3">All refunds are processed by airlines according to their policies. We don’t hold your money, so refund decisions and processing are entirely with the airline. We can help facilitate refund requests when needed.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px;">
+            <strong class="faq-question" style="color: #ffffff; display: block; margin-bottom: 4px;" data-i18n="faq_q4">Do you offer price matching?</strong>
+            <p class="policy-text" data-i18n="faq_a4">No, we cannot offer price matching because we don’t set the prices - the airlines do. We display transparent published airline fares and any contractual rates we may have. Since airlines charge you directly, we have no control over pricing. What you see is the actual airline pricing with no markup from us.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 15px;">
+            <strong class="faq-question" style="color: #ffffff; display: block; margin-bottom: 4px;" data-i18n="faq_q5">Can I earn airline miles?</strong>
+            <p class="policy-text" data-i18n="faq_a5">Absolutely! Since you book directly with the airline through our modern booking technology connection, you’ll earn miles and elite qualifying credits just as if you booked on the airline’s website.</p>
+        </div>
+    </div> <!-- Closes Section 18.4 correctly -->
+
+    <!-- SUBSECTION 18.5: CONTACT & PLATFORM LOGISTICS -->
+    <div class="policy-subsection">
+        <h4 data-i18n="contact_support_title" class="sub-heading-accent">5 Contact Support Operations</h4>
+        
+        <div class="legal-notice-card verification-accent" style="margin-bottom: 20px;">
+            <span class="card-icon">📧</span>
+            <div class="card-content">
+                <strong data-i18n="support_email_title">Official Email Channels:</strong>
+                <p class="policy-text smaller-text" style="margin-bottom: 8px;">
+                    Send inquiries straight to: <a href="mailto:SkyLux@support-airline.com" class="policy-link">SkyLux@support-airline.com</a>
+                </p>
+                <p class="policy-text smaller-text" style="font-style: italic; opacity: 0.85;" data-i18n="support_email_reqs">
+                    For fastest response, please include your booking reference number, specific question or issue description, and screenshots if relevant.
+                </p>
+            </div>
+        </div>
+
+        <h5 data-i18n="rt_header" style="color: #ffffff; margin-bottom: 5px;">⏰ Response Metrics</h5>
+        <ul class="policy-list">
+            <li><strong data-i18n="rt1_lbl">General Inquiries:</strong> <span data-i18n="rt1_desc">Processed within a 24-48 hour window.</span></li>
+            <li><strong data-i18n="rt2_lbl">Booking Assistance:</strong> <span data-i18n="rt2_desc">Processed within a 12-24 hour window.</span></li>
+            <li><strong data-i18n="rt3_lbl">Technical Issues:</strong> <span data-i18n="rt3_desc">Processed within an 8-12 hour window.</span></li>
+        </ul>
+
+        <h5 data-i18n="em_header" style="color: #ffffff; margin: 15px 0 5px 0;">🚨 Emergency Routing Lines</h5>
+        <p class="policy-text" data-i18n="em_desc">
+            For urgent travel emergencies only (such as active flight disruptions, missed connections, or immediate time-sensitive issues), our emergency operations line is accessible during business hours for critical situations. For standard inquiries, please rely on our email channel frameworks.
+        </p>
+    </div> <!-- Closes Section 18.5 correctly -->
+
+    <!-- SUBSECTION 6: SERVICE PHILOSOPHY -->
+    <div class="policy-subsection">
+        <h4 data-i18n="philosophy_title" class="sub-heading-accent">6 Service Philosophy &amp; Self-Service Resources</h4>
+        <p class="policy-text" data-i18n="philosophy_desc" style="margin-bottom: 15px;">
+            We’ve designed our platform to be self-sufficient, giving you the tools and direct airline access you need. Our support complements this approach rather than replacing your ability to manage travel independently.
+        </p>
+
+        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 15px;">
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="color: #ffffff;" data-i18n="res_airline_header">Airline Carrier Sourced Resources:</strong>
+                <ul class="policy-list" style="margin-top: 5px;">
+                    <li data-i18n="res_a1">Use booking references with airline customer care loops.</li>
+                    <li data-i18n="res_a2">Access airline mobile engines for telemetry streams.</li>
+                    <li data-i18n="res_a3">Leverage carrier real-time help chat interfaces.</li>
+                    <li data-i18n="res_a4">Retain personalized elite status programmatic recognition.</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 250px;">
+                <strong style="color: #ffffff;" data-i18n="res_platform_header">Internal Platform Sourced Resources:</strong>
+                <ul class="policy-list" style="margin-top: 5px;">
+                    <li data-i18n="res_p1">Trip management engine for organizational mapping.</li>
+                    <li data-i18n="res_p2">Real-time predictive flight analytical dashboards.</li>
+                    <li data-i18n="res_p3">Transparent baseline structural fair breakdown tables.</li>
+                    <li data-i18n="res_p4">Member account transaction history records.</li>
+                </ul>
+            </div>
+        </div>
+    </div> <!-- Closes Section 18.6 correctly -->
+</div> <!-- Closes #terms-support-anchor wrapper correctly -->
+    </div> <!-- END OF .content-body -->
     </main>
+    <!-- ==================================================================== -->
+<!-- GLOBAL FOOTER COMPONENT WITH QUICK NAVIGATION & SUPPORT              -->
+<!-- ==================================================================== -->
+<footer class="global-site-footer">
+    <div class="footer-container">
+        
+        <!-- Column 1: Brand Ecosystem Branding -->
+        <div class="footer-column brand-summary">
+            <!-- App Logo Asset Connection -->
+            <img src="assets/logo.png" alt="FlyTogether Logo" class="footer-app-logo" style="max-height: 50px; width: auto; margin-bottom: 15px;">
+            <p class="footer-meta-text" data-i18n="footer_brand_desc" style="font-size: 0.85rem; opacity: 0.75; line-height: 1.5;">
+                Empowering independent travel management with professional automated multi-airline auditing systems and comprehensive analytical support.
+            </p>
+        </div>
+
+        <!-- Column 2: Quick Smooth Navigation Routing Links -->
+       <div class="footer-column navigation-links">
+    <h5 class="footer-heading" data-i18n="footer_nav_header" style="color: #ffffff; font-weight: 600; margin-bottom: 15px;">Ecosystem Directory</h5>
+    <ul style="list-style: none; padding: 0; margin: 0; line-height: 2;">
+        <li><a href="javascript:void(0)" onclick="navigateToSection('about')" class="footer-nav-link" data-i18n="nav_about">About Platform</a></li>
+        <li><a href="javascript:void(0)" onclick="navigateToSection('features')" class="footer-nav-link" data-i18n="nav_features">Features &amp; Capabilities</a></li>
+        <li><a href="javascript:void(0)" onclick="navigateToSection('privacy-framework-root')" class="footer-nav-link" data-i18n="nav_privacy">Privacy Policy</a></li>
+        <li><a href="javascript:void(0)" onclick="navigateToSection('terms')" class="footer-nav-link" data-i18n="nav_support">Terms &amp; Support Centre</a></li>
+    </ul>
+</div>
+
+        <!-- Column 3: Contact Channels & Instant External Handlers -->
+        <div class="footer-column contact-channels">
+            <h5 class="footer-heading" data-i18n="footer_contact_header" style="color: #ffffff; font-weight: 600; margin-bottom: 15px;">Contact Us</h5>
+            
+            <!-- Email Vector to Device Direct Local Mail Clients/Gmail Handler -->
+            <div class="contact-item" style="margin-bottom: 10px;">
+                <span class="contact-icon" style="margin-right: 8px;">✉️</span>
+                <a href="mailto:SkyLux@support-airline.com" class="contact-action-link" style="color: #2a5298; text-decoration: none; font-weight: 500;">SkyLux@support-airline.com</a>
+            </div>
+
+            <!-- WhatsApp Instant Communications APIs Call Pipelines -->
+            <!-- WhatsApp Instant Communications APIs Call Pipelines with Visual Anchor Icons -->
+<div class="contact-item" style="margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+    <!-- Embedded Scalable Vector Graphics WhatsApp Branding Layout Anchor -->
+    <svg xmlns="http://w3.org" width="16" height="16" fill="#25D366" viewBox="0 0 16 16" style="display: inline-block; vertical-align: middle; flex-shrink: 0;">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-4.98c-.202-.101-1.194-.588-1.378-.654-.184-.066-.317-.099-.449.099-.132.199-.513.653-.629.788-.117.135-.232.152-.434.051-2Status-.101-.202-.459-.446-.722-.844-.317-.738-.532-1.01-.935-.051-.202.04-.152.14-.253.079-.08.117-.135.184-.27.066-.135.033-.253-.017-.354-.05-.101-.449-1.08-.616-1.482-.163-.395-.343-.342-.449-.342h-.385c-.132 0-.347.049-.527.246-.18.197-.688.672-.688 1.637 0 .966.703 1.897.801 2.032.099.135 1.381 2.11 3.344 2.957.467.203.83.324 1.114.415.47.15.897.129 1.235.078.377-.056 1.194-.488 1.362-1.074.168-.585.168-1.087.117-1.192-.05-.104-.184-.152-.385-.253z"/>
+    </svg>> 
+    <a href="https://wa.me" target="_blank" class="contact-action-link" style="color: #ffffff; text-decoration: none;">+93 79 246 0001</a>
+</div>
+
+<div class="contact-item" style="margin-bottom: 12px; font-size: 0.9rem; display: flex; align-items: center; gap: 8px;">
+    <!-- Embedded Scalable Vector Graphics WhatsApp Branding Layout Anchor -->
+    <svg xmlns="http://w3.org" width="16" height="16" fill="#25D366" viewBox="0 0 16 16" style="display: inline-block; vertical-align: middle; flex-shrink: 0;">
+        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-4.98c-.202-.101-1.194-.588-1.378-.654-.184-.066-.317-.099-.449.099-.132.199-.513.653-.629.788-.117.135-.232.152-.434.051-2Status-.101-.202-.459-.446-.722-.844-.317-.738-.532-1.01-.935-.051-.202.04-.152.14-.253.079-.08.117-.135.184-.27.066-.135.033-.253-.017-.354-.05-.101-.449-1.08-.616-1.482-.163-.395-.343-.342-.449-.342h-.385c-.132 0-.347.049-.527.246-.18.197-.688.672-.688 1.637 0 .966.703 1.897.801 2.032.099.135 1.381 2.11 3.344 2.957.467.203.83.324 1.114.415.47.15.897.129 1.235.078.377-.056 1.194-.488 1.362-1.074.168-.585.168-1.087.117-1.192-.05-.104-.184-.152-.385-.253z"/>
+    </svg>
+    <a href="https://wa.me" target="_blank" class="contact-action-link" style="color: #ffffff; text-decoration: none;">+93 42 783 0000</a>
+</div>
+
+        </div>
+
+    </div>
+
+    <!-- Micro-Bottom Baseline Copyright Component -->
+    <div class="footer-bottom-baseline" style="margin-top: 30px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center; font-size: 0.8rem; opacity: 0.6;">
+        <p>&copy; 2026 Skylux_support-airline. All aviation operations and localized platform systems reserved.</p>
+    </div>
+</footer>
+
 </div>
 </body>
 </html>
