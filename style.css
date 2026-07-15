@@ -483,7 +483,7 @@ h3 {
     .content-body .section2 .video,
     .content-body .section7 .video {
         width: 100% !important;
-        max-width: 320px !important; /* Locks a clean mobile layout card width */
+        max-width: 305px !important; /* Locks a clean mobile layout card width */
         height: 185px !important; /* Maintains the 16:9 widescreen ratio dimensions */
         margin: 25px auto !important; /* Keeps the cards perfectly centered with uniform spacing */
         border-radius: 12px !important;
